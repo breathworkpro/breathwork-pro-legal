@@ -1,803 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service – Breathwork Pro</title>
-  <style>
-    :root {
-      --bg-primary: #0a0f1e;
-      --bg-secondary: #111827;
-      --bg-card: #1a2235;
-      --bg-card-border: #1e2d45;
-      --accent: #4fa3e8;
-      --accent-light: #7dc4f5;
-      --accent-glow: rgba(79, 163, 232, 0.15);
-      --text-primary: #e8f0fe;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --divider: #1e2d45;
-      --warning: #f59e0b;
-      --warning-bg: rgba(245, 158, 11, 0.1);
-      --warning-border: rgba(245, 158, 11, 0.25);
-      --heading-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
-      --body-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: var(--body-font);
-      font-size: 16px;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 400px;
-      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 163, 232, 0.12), transparent);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .site-header {
-      padding: 48px 0 40px;
-      text-align: center;
-      border-bottom: 1px solid var(--divider);
-      margin-bottom: 48px;
-    }
-
-    .logo-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(79, 163, 232, 0.3);
-      border-radius: 16px;
-      margin-bottom: 20px;
-    }
-
-    .logo-mark svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    .site-header h1 {
-      font-family: var(--heading-font);
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .doc-title {
-      font-family: var(--heading-font);
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .meta-info {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .meta-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      background: var(--bg-card);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 20px;
-      padding: 4px 12px;
-    }
-
-    /* Warning card */
-    .warning-card {
-      background: var(--warning-bg);
-      border: 1px solid var(--warning-border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 32px;
-    }
-
-    .warning-card p {
-      color: #fcd34d !important;
-      font-size: 14px !important;
-      margin-bottom: 0 !important;
-    }
-
-    .warning-card strong {
-      color: #fde68a;
-    }
-
-    /* Highlight card */
-    .highlight-card {
-      background: var(--accent-glow);
-      border: 1px solid rgba(79, 163, 232, 0.25);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin: 20px 0;
-    }
-
-    .highlight-card p {
-      color: var(--accent-light) !important;
-      font-size: 14px !important;
-      margin-bottom: 0 !important;
-    }
-
-    .highlight-card strong {
-      color: #a8d8f8;
-    }
-
-    /* TOC */
-    .toc {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 12px;
-      padding: 24px 28px;
-      margin-bottom: 48px;
-    }
-
-    .toc h2 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-
-    .toc ol {
-      list-style: none;
-      counter-reset: toc-counter;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 24px;
-    }
-
-    @media (max-width: 520px) {
-      .toc ol { grid-template-columns: 1fr; }
-    }
-
-    .toc ol li {
-      counter-increment: toc-counter;
-    }
-
-    .toc ol li::before {
-      content: counter(toc-counter, decimal-leading-zero) ". ";
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .toc a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
-    .toc a:hover {
-      color: var(--accent-light);
-    }
-
-    /* Pricing table */
-    .pricing-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 14px;
-    }
-
-    .pricing-table th {
-      text-align: left;
-      padding: 10px 14px;
-      background: var(--bg-card);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .pricing-table td {
-      padding: 12px 14px;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--divider);
-      vertical-align: top;
-    }
-
-    .pricing-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .pricing-table tr:nth-child(even) td {
-      background: rgba(255,255,255,0.02);
-    }
-
-    .price-tag {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .price-note {
-      font-size: 12px;
-      color: var(--text-muted);
-      display: block;
-      margin-top: 2px;
-    }
-
-    /* Features comparison */
-    .feature-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 14px;
-    }
-
-    .feature-table th {
-      text-align: left;
-      padding: 10px 14px;
-      background: var(--bg-card);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .feature-table td {
-      padding: 10px 14px;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .feature-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .check {
-      color: #4ade80;
-      font-size: 15px;
-    }
-
-    .cross {
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
-    /* Sections */
-    .section {
-      margin-bottom: 48px;
-      scroll-margin-top: 24px;
-    }
-
-    .section-number {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .section h2 {
-      font-family: var(--heading-font);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .section p {
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-      font-size: 15px;
-    }
-
-    .section p:last-child {
-      margin-bottom: 0;
-    }
-
-    .section ul,
-    .section ol {
-      margin: 12px 0 16px 20px;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    .section li {
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-
-    .section h3 {
-      font-family: var(--heading-font);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 24px 0 10px;
-    }
-
-    /* Contact footer */
-    .contact-section {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 12px;
-      padding: 28px;
-      text-align: center;
-      margin-top: 56px;
-    }
-
-    .contact-section h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 10px;
-    }
-
-    .contact-section p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .contact-link {
-      display: inline-block;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 10px 24px;
-      border: 1px solid rgba(79, 163, 232, 0.35);
-      border-radius: 8px;
-      background: var(--accent-glow);
-      transition: all 0.2s;
-    }
-
-    .contact-link:hover {
-      background: rgba(79, 163, 232, 0.25);
-      border-color: var(--accent);
-    }
-
-    .doc-footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--divider);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    .doc-footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-decoration-color: rgba(79, 163, 232, 0.4);
-    }
-
-    a:hover {
-      text-decoration-color: var(--accent);
-    }
-
-    strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    em {
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-  </style>
+    <title>Content filtering has stopped access to this web page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://res.ubtsupport.com/resources/images/favicons/favicon.svg" type="image/svg+xml">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;display=swap');
+ 
+        html,
+        body {
+            height: 100%
+        }
+ 
+        body {
+            min-width: 320px;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #F5F5F5;
+        }
+ 
+        @media (min-width: 768px) {
+            body {
+                font-size: 12px;
+            }
+        }
+ 
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+ 
+        input {
+            font-family: 'Roboto', sans-serif;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-appearance: none;
+        }
+ 
+        p {
+            margin: 0 0 16px;
+        }
+ 
+        .container-wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            display: table-cell;
+            display: flex;
+            min-height: 100%;
+            height: 100vh;
+        }
+ 
+        .container {
+            width: 100%;
+            padding: 55px 15px 15px;
+            margin: 0 auto;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+ 
+        @media (min-width: 480px) and (min-height: 320px) {
+            .container {
+                padding: 64px 15px 15px;
+            }
+        }
+ 
+        @media (min-width: 375px) and (min-height: 520px) {
+            .container {
+                padding: 64px 15px;
+            }
+        }
+ 
+        @media (min-width: 600px) {
+            .container {
+                width: 562px;
+            }
+        }
+ 
+        @media (min-width: 768px) and (min-height: 600px) {
+            .container {
+                padding: 64px 0;
+            }
+        }
+ 
+        .logo {
+            height: 38px;
+            margin: 0 auto;
+            background-image: url(data:image/jpg;base64,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);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 10px;
+        }
+ 
+        @media (min-width: 480px) and (min-height: 320px) {
+            .logo {
+                top: 20px;
+            }
+        }
+ 
+        @media (min-width: 768px) and (min-height: 600px) {
+            .logo {
+                height: 48px;
+                top: 0;
+            }
+        }
+ 
+        .motto {
+            height: 28px;
+            font-size: 24px;
+            color: #212121;
+            font-weight: 500;
+            text-align: center;
+            margin: 0 auto 30px;
+        }
+ 
+        .messagebox {
+            padding: 16px 16px 70px;
+            background-color: #FFFFFF;
+            border: 5px solid #009A06;
+            -webkit-box-shadow: 0px 8px 10px #cccccc;
+            box-shadow: 0px 8px 10px #cccccc;
+            border-radius: 5px;
+            position: relative;
+        }
+ 
+        @media (min-width: 480px) {
+            .messagebox {
+                padding: 16px 16px 60px;
+            }
+        }
+ 
+        .warning {
+            font-size: 18px;
+            color: #212121;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.25px;
+        }
+ 
+        @media (min-width: 768px) {
+            .warning {
+                font-size: 16px;
+            }
+        }
+ 
+        .url {
+            width:100%;
+            text-align: center;
+            margin: 0 0 16px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+ 
+        .url span {
+            display: inline-block;
+            color: #212121;
+            font-weight: 500;
+            letter-spacing: 1.8px;
+            padding: 8px;
+            margin: 0 auto;
+            background-color: #F5F5F5;
+        }
+ 
+        .requestbtn {
+            display: block;
+            cursor: pointer;
+            width: 100%;
+            height: 48px;
+            font-size: 16px;
+            color: #FFFFFF;
+            font-weight: 500;
+            letter-spacing: 0.25px;
+            text-align: center;
+            margin: 0 auto;
+            background-color: #4CAF50;
+            border: 0;
+            border-radius: 5px;
+        }
+ 
+        .requestbtn:hover {
+            opacity: 0.7;
+        }
+ 
+        .shield {
+            width: 35px;
+            height: 50px;
+            background: transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMi43NzggNDMuODMyIj48cGF0aCBkPSJNMS43NSA3LjQ2M3YxOS4yNWMwIDkuMTggMTQuNjQgMTUuMjI1IDE0LjY0IDE1LjIyNXMxNC42NC02LjA0NSAxNC42NC0xNS4yMjVWNi44NzdjLTQuNzMyIDAtMTEuNzEyLS45NDYtMTQuNjQtNC4zMTMtMy40NCAzLjQ0LTkuOTA4IDQuOS0xNC42NCA0Ljl6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTcuNDUgMjIuMTJzNS4yMzMgNS41OTMgNy4wNSA3Ljk0YzIuNTYzLTQuMTggOC41ODgtMTIuOTc0IDExLjMwNC0xNS4zNy0yLjUyNS0uODc4LTkuMiA1LjI2Ny0xMS40MiA5LjItMi44NjItMi4wMTQtNi45MzQtNC4wNy02LjkzNC0xLjc4em04Ljk1IDIxLjcxMmwtLjY2OC0uMjc3QzE1LjA4IDQzLjMgMCAzNi45NDUgMCAyNi43MTN2LTIxaDEuNzVjNC4zNDMgMCAxMC40LTEuMzczIDEzLjQwMi00LjM4NkwxNi40OCAwbDEuMjMgMS40MTdjMi4zODIgMi43NCA4LjY2MyAzLjcgMTMuMzE4IDMuN2gxLjc1djIxLjU4NWMwIDEwLjIzMi0xNS4wNzggMTYuNTc4LTE1LjcyIDE2Ljg0MmwtLjY2Ni4yNzd6TTMuNSA5LjE1NXYxNy41NThjMCA2LjIwNyA4LjczNCAxMS40NCAxMi44OCAxMy4zMTQgMi43MTctMS4yNiAxMi44OTgtNi40MzggMTIuODk4LTEzLjMxNFY4LjU4NWMtMy4zNi0uMTU2LTkuMjk2LS44NDgtMTIuOTI3LTMuNjY4QzEyLjc3OCA3LjY2IDcuNjQgOC44ODYgMy41IDkuMTU1eiIgZmlsbD0iIzAwOWEwNiIvPjwvc3ZnPg==");
+            background-repeat: no-repeat;
+            background-size: 35px 50px;
+            margin: -41px auto 20px;
+            padding: 10px;
+            position: static;
+            z-index: 10000;
+        }
+ 
+        .reason {
+            color: #212121;
+            text-align: center;
+            letter-spacing: 0.4px;
+        }
+ 
+        .reason_code {
+            font-size: 10px;
+            color: #757575;
+            letter-spacing: 0.4px;
+            position: absolute;
+            left: 0;
+            bottom: -38px;
+        }
+ 
+        .cat {
+            font-weight: 500;
+        }
+ 
+        .description {
+            color: #757575;
+            text-align: center;
+            letter-spacing: 0.4px;
+        }
+ 
+        .subscript {
+            display: block;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 0;
+        }
+ 
+        .subscript_cont {
+            margin: 16px auto;
+            width: 375px;
+            max-width: 100%;
+            overflow: hidden;
+        }
+ 
+        .subscript_icon {
+            float: left;
+            width: 20px;
+            height: 19px;
+            background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMS4zMDciIGhlaWdodD0iMjguMTkyIj48cGF0aCBmaWxsPSIjNzU3NTc2IiBkPSJNMTUuNjcgMTkuNTk4Yy40OTggMCAuOTIzLjE3IDEuMjc1LjUwOHMuNTMuNzUyLjUzIDEuMjM2YzAgLjQ3Ny0uMTc2Ljg4NS0uNTMgMS4yMjVzLS43NzcuNTA4LTEuMjc1LjUwOC0uOTIyLS4xNy0xLjI3NS0uNTA4LS41My0uNzQ4LS41My0xLjIyNS4xNzUtLjg5LjUyNC0xLjIzLjc3NS0uNTE0IDEuMjgtLjUxNG0uNjktNC40OGMtLjIwOC44MjgtLjM2IDEuODEtLjQ1NyAyLjk1aC0uNWMtLjA1Mi0uODEzLS4yMjItMS43OTUtLjUxMi0yLjk1bC0uNTgtMi4zMzJjLS4zNS0xLjM5Ni0uNTIzLTIuNC0uNTIzLTMuMDA1IDAtLjU1LjE3LTEgLjUxMi0xLjMyNnMuNzg3LS41MDIgMS4zMzYtLjUwMmMuNTM2IDAgLjk3OC4xNyAxLjMzLjUwOHMuNTMuNzcuNTMgMS4yODhjMCAuNTQyLS4xODYgMS41NTUtLjU1NyAzLjAzN2wtLjYgMi4zMzJ6bTExLjUzNSA4LjU1OGMwIDEuMTItMS4wMzggMS42NzgtMy4xMTQgMS42NzhINi41MjZjLTIuMDc3IDAtMy4xMTUtLjU2LTMuMTE1LTEuNjc4IDAtLjc2Mi40Ni0xLjkyNCAxLjM4LTMuNDg4TDEyLjY3NyA2Ljk0YzEuMjQ4LTIuMTA0IDIuMjQtMy4xNTUgMi45NzctMy4xNTUuNzIyIDAgMS43MDggMS4wNTIgMi45NTcgMy4xNTVsNy45MDQgMTMuMjQ4Yy45MiAxLjU2NCAxLjM4IDIuNzI3IDEuMzggMy40ODhNMTkuNzc0IDIuNjIyQzE4LjczNi44NzQgMTcuMzYyIDAgMTUuNjU0IDBjLTEuNzIyIDAtMy4wOTYuODc0LTQuMTIgMi42MjJMLjg0OCAyMC43NkMuMjgzIDIxLjczMyAwIDIyLjcyNSAwIDIzLjczN2MwIDEuMjM2LjM5NCAyLjI4NyAxLjE4MyAzLjE1NHMxLjc2IDEuMyAyLjkxOCAxLjNoMjMuMTA1YzEuMTU3IDAgMi4xMy0uNDM0IDIuOTE4LTEuM3MxLjE4My0xLjkxOCAxLjE4My0zLjE1NGMwLTEuMDEyLS4yODItMi4wMDQtLjg0OC0yLjk3N0wxOS43NzQgMi42MjJ6Ii8+PC9zdmc+");
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+ 
+        .info-icon {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaGVpZ2h0PSIxNjAiIHdpZHRoPSIxNjAiIHZlcnNpb249IjEuMCI+DQogPGcgZmlsbD0iIzRiNGI0YiI+DQogIDxwYXRoIGQ9Im04MCAxNWMtMzUuODggMC02NSAyOS4xMi02NSA2NXMyOS4xMiA2NSA2NSA2NSA2NS0yOS4xMiA2NS02NS0yOS4xMi02NS02NS02NXptMCAxMGMzMC4zNiAwIDU1IDI0LjY0IDU1IDU1cy0yNC42NCA1NS01NSA1NS01NS0yNC42NC01NS01NSAyNC42NC01NSA1NS01NXoiLz4NCiAgPHBhdGggZD0ibTU3LjM3MyAxOC4yMzFhOS4zODM0IDkuMTE1MyAwIDEgMSAtMTguNzY3IDAgOS4zODM0IDkuMTE1MyAwIDEgMSAxOC43NjcgMHoiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTk4OSAwIDAgMS4yMzQyIDIxLjIxNCAyOC43NSkiLz4NCiAgPHBhdGggZD0ibTkwLjY2NSAxMTAuOTZjLTAuMDY5IDIuNzMgMS4yMTEgMy41IDQuMzI3IDMuODJsNS4wMDggMC4xdjUuMTJoLTM5LjA3M3YtNS4xMmw1LjUwMy0wLjFjMy4yOTEtMC4xIDQuMDgyLTEuMzggNC4zMjctMy44MnYtMzAuODEzYzAuMDM1LTQuODc5LTYuMjk2LTQuMTEzLTEwLjc1Ny0zLjk2OHYtNS4wNzRsMzAuNjY1LTEuMTA1Ii8+DQogPC9nPg0KPC9zdmc+");
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            vertical-align: bottom;
+        }
+ 
+        .contact_support {
+            font-size: 10px;
+            color: #757575;
+            font-weight: 400;
+            letter-spacing: 0.4px;
+            text-align: center;
+        }
+ 
+        .contact_support a {
+            color: #005296;
+            text-decoration: none;
+        }
+ 
+        .footnote {
+            font-size: 10px;
+            color: #757575;
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-top: 16px;
+        }
+ 
+        @media (min-width: 530px) {
+            .footnote {
+                letter-spacing: 1.5px;
+            }
+ 
+            .reason_code {
+                letter-spacing: 1.5px;
+            }
+        }
+ 
+        @media (max-width: 490px) {
+            .footnote {
+                text-align: center;
+            }
+            .reason_code {
+                text-align: center;
+                width: 100%;
+                bottom: -60px;
+            }
+        }
+ 
+        @media (max-width: 355px) {
+            .reason_code {
+                bottom: -76px;
+            }
+        }
+ 
+        .footnote img {
+            vertical-align: middle;
+        }
+ 
+        body.whitelistblock #whitelistblock,
+        body.safesearchunclassified #whitelistblock,
+        body.safesearchclassified #whitelistblock,
+        body.reclassify #whitelistblock,
+        body.retrybtn #retrybtn,
+        body.retrybtnandroid #retrybtnandroid,
+        body.br-blacklist #br-blacklist,
+        body.br-contextual #br-contextual,
+        body.br-contextual-report #br-contextual-report,
+        body.br-pagephrase #br-pagephrase,
+        body.br-urlphrase #br-urlphrase,
+        body.br-unsuitable #br-unsuitable,
+        body.br-classification #br-classification,
+        body.br-classification-blacklist #br-classification-blacklist,
+        body.br-reclassification #br-reclassification,
+        body.br-unclassified #br-unclassified,
+        body.br-whitelist #br-whitelist,
+        body.br-disabled #br-disabled,
+        body.br-timeout #br-timeout,
+        body.br-schedule #br-schedule,
+        body.br-redirect #br-redirect,
+        body.br-custom #br-custom {
+            display: block;
+        }
+ 
+        #whitelistblock,
+        body.whitelistblock .default,
+        body.safesearchunclassified .default,
+        body.safesearchclassified .default,
+        body.reclassify .default,
+        #retrybtn,
+        body.retrybtn .default,
+        #retrybtnandroid,
+        body.retrybtnandroid .default,
+        #br-blacklist,
+        body.br-blacklist .default,
+        #br-contextual,
+        body.br-contextual .default,
+        #br-contextual-report,
+        body.br-contextual-report .default,
+        #br-urlphrase,
+        body.br-urlphrase .default,
+        #br-pagephrase,
+        body.br-pagephrase .default,
+        #br-unsuitable,
+        body.br-unsuitable .default,
+        #br-classification,
+        body.br-classification .default,
+        #br-classification-blacklist,
+        body.br-classification-blacklist .default,
+        #br-reclassification,
+        body.br-reclassification .default,
+        #br-unclassified,
+        body.br-unclassified .default,
+        #br-whitelist,
+        body.br-whitelist .default,
+        #br-disabled,
+        body.br-disabled .default,
+        #br-timeout,
+        body.br-timeout .default,
+        #br-schedule,
+        body.br-schedule .default,
+        #br-redirect,
+        body.br-redirect .default,
+        #br-custom,
+        body.br-custom .default {
+            display: none;
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-
-    <!-- Header -->
-    <header class="site-header">
-      <div class="logo-mark">
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="14" cy="14" r="12" stroke="#4fa3e8" stroke-width="1.5" opacity="0.4"/>
-          <circle cx="14" cy="14" r="7" stroke="#4fa3e8" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="14" cy="14" r="3" fill="#4fa3e8"/>
-        </svg>
-      </div>
-      <h1>Breathwork Pro</h1>
-      <div class="doc-title">Terms of Service</div>
-      <div class="meta-info">
-        <span class="meta-badge">Effective: March 2026</span>
-        <span class="meta-badge">SmartForage Ltd</span>
-        <span class="meta-badge">Governing Law: New Zealand</span>
-      </div>
-    </header>
-
-    <!-- Health Disclaimer Warning -->
-    <div class="warning-card">
-      <p><strong>Health Disclaimer:</strong> Breathwork Pro is a wellness tool for educational and personal practice purposes only. It is <strong>NOT medical advice</strong> and is <strong>NOT a substitute for professional medical treatment</strong>. Consult a qualified healthcare provider before beginning any breathing practice, especially if you have respiratory, cardiac, or neurological conditions. Never practice breath retention while driving, swimming, or operating machinery.</p>
+<body class="br-contextual-report ">
+    <div class="container-wrap">
+        <div class="container">
+            <div class="logo"></div>
+            <div class="motto">You Are Protected!</div>
+            <div class="messagebox">
+                <div class="shield"></div>
+                <p class="warning">Content filtering has stopped access to this web page:</p>
+               <div class="url"><span>https://ppl-ai-code-interpreter-files.s3.amazonaws.com/b3958a66-305c-4fc4-8540-6b0105886dc2/2c1f5ffd-c782-4c60-b936-9e4ae5eb2179/terms_of_service.html?response-content-disposition=attachment%3B%20filename%3Dterms_of_service.html%3B%20filename%2A%3DUTF-8%27%27terms_of_service.html&amp;AWSAccessKeyId=ASIA2F3EMEYEVHPHK7GL&amp;Signature=zbBS6cDs4wOcAiP1LJn5iCsz7Ls%3D&amp;x-amz-security-token=IQoJb3JpZ2luX2VjECQaCXVzLWVhc3QtMSJHMEUCIQDbjVr9XGU13x9l%2FbUqqh0NLtqyz2G98daVXsVQdd13tAIgaAHc%2FxkkJGQQGrm7URNl9xRRwyI4jDsjXTJ0BFX8%2B0cq%2FAQI7P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDIbmkxOGxda2%2BGW%2F1irQBNgbN4%2Bnyffw0xTIMa4cpQUJWXm8thaXU9YLOBaRURf4KswcOtljdcFaXS3qG%2F8v%2FmlLZaQYaCz8UvsfgPQ872%2BowevFElOHXPrXuAlq4PtZAu7Zf1TOEIGkEP5tgv1s7WQ5dnBLqKIVEZ7NPhPNhyPFjYV9L8MMRSKs76MFL3tnKdKADcYtF%2FPhKvKutNyXoIGj4z3KI6los6eaZshUr9lKhgjY2c%2BpqXZkmZaelpnhtm0nXPQYzG4PoLtW29LRk6FqNjFGnH9xvwjdDNaaT3B5xVXXgtKz3q54wxUnizqqXA%2FWz7ICVBCWj3tNtTI%2F%2B21NlmDpGpgesDRIDeJPvrUlDvS9c%2BGDnD9UW8k68Yt9JcJODZNyklu9%2BuRt87jP%2FmpsMsZw6SNsiwAdB3KmPJ%2BeG8LuQzPy%2F45E3x4LYh0HeNgUkpwqsQZ5hpIiHLXG2K%2FTUEzL4z4QjbKy3zpVEVu%2Bm6%2FNL%2FCbpz27qfGOyDQ2PMkn6Q6C4UU%2FqruJ7vpPts9FWUrFYzrPwSQewQFh9yBumDBWgSHELGqxpdqfM4AW27LBAc68%2BFvZrkz%2BGC3P93fZH8vyW1ystW6NtLVrClrHVbFM%2BJyPVbyrNDFMz%2B43Jj9Z6TIeeMsm%2BYl%2FghBVKHckiu0ePtyLFKq3x2TI0MX%2BszpmIqyxVHYYtZ844CjGGVFTMWW5MG%2F1k2E5ZGi3iFXZOuNPcJBrtr9%2B658Qfj%2FMZkkuawVmtcGAWaxjLmpEdBohkwpsV2XC2nVYDTdL%2B3zCKone21Gm1LL0qaGgsI4wns2szQY6mAFTYI%2BpXTjMbAFVOSBEY%2Bbp9q3D47ZWEmSs%2FmMEGzsitvD6iwRV1a0ifcnzVu%2FHQMbXxD%2FN8NcNNepGmNR02qHv9o5%2F%2FEWoDNV%2BXJ%2FRUA72V%2F%2FfQABcdDFwBf91sohoSYVvefQeoK3F4bK2jv32FDn2uuRsUJUka7O9%2F50%2FuJZdFcLUciryj6fQKoR5ITfCmxjeIkPGIDkdYQ%3D%3D&amp;Expires=1772826349</span></div>
+                <!-- Default Block Reason -->
+                <div class="default">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                    </p>
+                </div>
+                <!-- Optional Block Reasons -->
+                <div id="br-blacklist">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content and can't be
+                        accessed or requested because the website or a category is specifically blocked by your admin or
+                        by Streamline3.
+                        <br><span>System Classification: <span class="cat"></span> <a href="#" class="info-icon" onclick="return false"></a></span>
+                    </p>
+                    <div class="reason_code">BR10</div>
+                </div>
+                <div id="br-contextual">
+                    <p class="reason reason-custom">
+                        This page has unsuitable content (PGS)
+                    </p>
+                    <div class="reason_code">BR11</div>
+                </div>
+                <div id="br-contextual-report">
+                    <p class="reason reason-custom">
+                        This page has unsuitable content (PGS)
+                    </p>
+                    <p class="description">
+                        Streamline3 is helping to shield you while on the internet. If you believe access to this page
+                        was prevented in error, you can report the details for review.
+                    </p>
+                    <form method="get" action="https://my.ubtsupport.com/whitelist_report.php">
+                        <input type="hidden" name="url" value="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/b3958a66-305c-4fc4-8540-6b0105886dc2/2c1f5ffd-c782-4c60-b936-9e4ae5eb2179/terms_of_service.html?response-content-disposition=attachment%3B%20filename%3Dterms_of_service.html%3B%20filename%2A%3DUTF-8%27%27terms_of_service.html&amp;AWSAccessKeyId=ASIA2F3EMEYEVHPHK7GL&amp;Signature=zbBS6cDs4wOcAiP1LJn5iCsz7Ls%3D&amp;x-amz-security-token=IQoJb3JpZ2luX2VjECQaCXVzLWVhc3QtMSJHMEUCIQDbjVr9XGU13x9l%2FbUqqh0NLtqyz2G98daVXsVQdd13tAIgaAHc%2FxkkJGQQGrm7URNl9xRRwyI4jDsjXTJ0BFX8%2B0cq%2FAQI7P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDIbmkxOGxda2%2BGW%2F1irQBNgbN4%2Bnyffw0xTIMa4cpQUJWXm8thaXU9YLOBaRURf4KswcOtljdcFaXS3qG%2F8v%2FmlLZaQYaCz8UvsfgPQ872%2BowevFElOHXPrXuAlq4PtZAu7Zf1TOEIGkEP5tgv1s7WQ5dnBLqKIVEZ7NPhPNhyPFjYV9L8MMRSKs76MFL3tnKdKADcYtF%2FPhKvKutNyXoIGj4z3KI6los6eaZshUr9lKhgjY2c%2BpqXZkmZaelpnhtm0nXPQYzG4PoLtW29LRk6FqNjFGnH9xvwjdDNaaT3B5xVXXgtKz3q54wxUnizqqXA%2FWz7ICVBCWj3tNtTI%2F%2B21NlmDpGpgesDRIDeJPvrUlDvS9c%2BGDnD9UW8k68Yt9JcJODZNyklu9%2BuRt87jP%2FmpsMsZw6SNsiwAdB3KmPJ%2BeG8LuQzPy%2F45E3x4LYh0HeNgUkpwqsQZ5hpIiHLXG2K%2FTUEzL4z4QjbKy3zpVEVu%2Bm6%2FNL%2FCbpz27qfGOyDQ2PMkn6Q6C4UU%2FqruJ7vpPts9FWUrFYzrPwSQewQFh9yBumDBWgSHELGqxpdqfM4AW27LBAc68%2BFvZrkz%2BGC3P93fZH8vyW1ystW6NtLVrClrHVbFM%2BJyPVbyrNDFMz%2B43Jj9Z6TIeeMsm%2BYl%2FghBVKHckiu0ePtyLFKq3x2TI0MX%2BszpmIqyxVHYYtZ844CjGGVFTMWW5MG%2F1k2E5ZGi3iFXZOuNPcJBrtr9%2B658Qfj%2FMZkkuawVmtcGAWaxjLmpEdBohkwpsV2XC2nVYDTdL%2B3zCKone21Gm1LL0qaGgsI4wns2szQY6mAFTYI%2BpXTjMbAFVOSBEY%2Bbp9q3D47ZWEmSs%2FmMEGzsitvD6iwRV1a0ifcnzVu%2FHQMbXxD%2FN8NcNNepGmNR02qHv9o5%2F%2FEWoDNV%2BXJ%2FRUA72V%2F%2FfQABcdDFwBf91sohoSYVvefQeoK3F4bK2jv32FDn2uuRsUJUka7O9%2F50%2FuJZdFcLUciryj6fQKoR5ITfCmxjeIkPGIDkdYQ%3D%3D&amp;Expires=1772826349">
+                        <input type="hidden" name="referer" value="https://www.perplexity.ai">
+                        <input type="hidden" name="ruleid" value="767299">
+                        <input type="hidden" name="blockid" value="e0032da0-ef5b-4b6c-ba25-1bed35d55e1e">
+                        <input type="hidden" name="categoryid" value="2010">
+                        <input type="submit" class="requestbtn" value="Report Block">
+                    </form>
+                    <div class="reason_code">BR11</div>
+                </div>
+                <div id="br-urlphrase">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                    </p>
+                    <div class="reason_code">BR12</div>
+                </div>
+                <div id="br-pagephrase">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                    </p>
+                    <div class="reason_code">BR13</div>
+                </div>
+                <div id="br-unsuitable">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                    </p>
+                    <div class="reason_code">BR14</div>
+                </div>
+                <div id="br-classification">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                        <br><span>System Classification: <span class="cat"></span> <a href="#" class="info-icon" onclick="return false"></a></span>
+                    </p>
+                    <div class="reason_code">BR15</div>
+                </div>
+                <div id="br-reclassification">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                        <br><span>System Classification: <span class="cat"></span> <a href="#" class="info-icon" onclick="return false"></a></span>
+                    </p>
+                    <div class="reason_code">BR16</div>
+                </div>
+                <div id="br-unclassified">
+                    <p class="reason">
+                        This web page is currently unclassified by the system. Your attempt to access it has triggered an automatic classification request which will be updated within 48 hours.
+                    </p>
+                    <div class="reason_code">BR17</div>
+                </div>
+                <div id="br-whitelist">
+                    <p class="reason">
+                        This web page isn't currently available on your allowed list.
+                        <br><span>System Classification: <span class="cat"></span> <a href="#" class="info-icon" onclick="return false"></a></span>
+                    </p>
+                    <div class="reason_code">BR18</div>
+                </div>
+                <div id="br-disabled">
+                    <p class="reason">
+                        This device currently has internet access disabled.
+                    </p>
+                    <div class="reason_code">BR19</div>
+                </div>
+                <div id="br-timeout">
+                    <p class="reason">
+                        This web page could not be reached as connection took longer than expected and has timed out.
+                    </p>
+                    <div class="reason_code">BR20</div>
+                </div>
+                <div id="br-schedule">
+                    <p class="reason">
+                        This web page isn't currently available because a web access scheduled block is in effect.
+                    </p>
+                    <div class="reason_code">BR21</div>
+                </div>
+                <div id="br-custom">
+                    <p class="reason reason-custom">
+                        This page has unsuitable content (PGS)
+                    </p>
+                    <div class="reason_code">BR22</div>
+                </div>
+                <div id="br-redirect">
+                    <p class="reason reason-custom">
+                        This page has unsuitable content (PGS)
+                    </p>
+                    <div class="reason_code">BR23</div>
+                </div>
+                <div id="br-classification-blacklist">
+                    <p class="reason">
+                        This web page has been identified as potentially containing harmful content.
+                        <br><span>System Classification: <span class="cat"></span> <a href="#" class="info-icon" onclick="return false"></a></span>
+                    </p>
+                    <div class="reason_code">BR24</div>
+                </div>
+                <div class="default">
+                    <p class="description">
+                        Streamline3 is helping to shield you while on the internet.
+                    </p>
+                </div>
+                <div id="whitelistblock">
+                    <p class="description">
+                        Streamline3 is helping to shield you while on the internet. You can send a request directly to your Streamline3 Account Administrator for this web page be allowed.
+                    </p>
+                    <form method="get" action="https://my.ubtsupport.com/whitelist_request.php">
+                        <input type="hidden" name="url" value="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/b3958a66-305c-4fc4-8540-6b0105886dc2/2c1f5ffd-c782-4c60-b936-9e4ae5eb2179/terms_of_service.html?response-content-disposition=attachment%3B%20filename%3Dterms_of_service.html%3B%20filename%2A%3DUTF-8%27%27terms_of_service.html&amp;AWSAccessKeyId=ASIA2F3EMEYEVHPHK7GL&amp;Signature=zbBS6cDs4wOcAiP1LJn5iCsz7Ls%3D&amp;x-amz-security-token=IQoJb3JpZ2luX2VjECQaCXVzLWVhc3QtMSJHMEUCIQDbjVr9XGU13x9l%2FbUqqh0NLtqyz2G98daVXsVQdd13tAIgaAHc%2FxkkJGQQGrm7URNl9xRRwyI4jDsjXTJ0BFX8%2B0cq%2FAQI7P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDIbmkxOGxda2%2BGW%2F1irQBNgbN4%2Bnyffw0xTIMa4cpQUJWXm8thaXU9YLOBaRURf4KswcOtljdcFaXS3qG%2F8v%2FmlLZaQYaCz8UvsfgPQ872%2BowevFElOHXPrXuAlq4PtZAu7Zf1TOEIGkEP5tgv1s7WQ5dnBLqKIVEZ7NPhPNhyPFjYV9L8MMRSKs76MFL3tnKdKADcYtF%2FPhKvKutNyXoIGj4z3KI6los6eaZshUr9lKhgjY2c%2BpqXZkmZaelpnhtm0nXPQYzG4PoLtW29LRk6FqNjFGnH9xvwjdDNaaT3B5xVXXgtKz3q54wxUnizqqXA%2FWz7ICVBCWj3tNtTI%2F%2B21NlmDpGpgesDRIDeJPvrUlDvS9c%2BGDnD9UW8k68Yt9JcJODZNyklu9%2BuRt87jP%2FmpsMsZw6SNsiwAdB3KmPJ%2BeG8LuQzPy%2F45E3x4LYh0HeNgUkpwqsQZ5hpIiHLXG2K%2FTUEzL4z4QjbKy3zpVEVu%2Bm6%2FNL%2FCbpz27qfGOyDQ2PMkn6Q6C4UU%2FqruJ7vpPts9FWUrFYzrPwSQewQFh9yBumDBWgSHELGqxpdqfM4AW27LBAc68%2BFvZrkz%2BGC3P93fZH8vyW1ystW6NtLVrClrHVbFM%2BJyPVbyrNDFMz%2B43Jj9Z6TIeeMsm%2BYl%2FghBVKHckiu0ePtyLFKq3x2TI0MX%2BszpmIqyxVHYYtZ844CjGGVFTMWW5MG%2F1k2E5ZGi3iFXZOuNPcJBrtr9%2B658Qfj%2FMZkkuawVmtcGAWaxjLmpEdBohkwpsV2XC2nVYDTdL%2B3zCKone21Gm1LL0qaGgsI4wns2szQY6mAFTYI%2BpXTjMbAFVOSBEY%2Bbp9q3D47ZWEmSs%2FmMEGzsitvD6iwRV1a0ifcnzVu%2FHQMbXxD%2FN8NcNNepGmNR02qHv9o5%2F%2FEWoDNV%2BXJ%2FRUA72V%2F%2FfQABcdDFwBf91sohoSYVvefQeoK3F4bK2jv32FDn2uuRsUJUka7O9%2F50%2FuJZdFcLUciryj6fQKoR5ITfCmxjeIkPGIDkdYQ%3D%3D&amp;Expires=1772826349">
+                        <input type="hidden" name="referer" value="https://www.perplexity.ai">
+                        <input type="submit" class="requestbtn" value="Request Access">
+                    </form>
+                </div>
+                <div id="retrybtn">
+                    <p class="description">
+                        This may be a temporary fault, in which case you can try loading the page again.
+                    </p>
+                    <input type="button" class="requestbtn" value="Reload Web Page" onclick="location.reload()">
+                </div>
+                <div id="retrybtnandroid">
+                    <p class="description">
+                        This may be a temporary fault. Please open Streamline3 for Android and select the option to refresh settings.
+                    </p>
+                </div>
+                <div class="subscript">
+                    <div class="subscript_cont">
+                        <div class="subscript_icon"></div>
+                        <div class="contact_support">If you see this message regularly, we can help! <a href="https://ubtsupport.com/contact/">Contact Support</a> for assistance on how to configure access.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footnote">
+                Protection features provided by
+                <img alt="Streamline3" height="22" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE1NCIgaGVpZ2h0PSIyMDAiIHZpZXdCb3g9IjAgMCAxMTU0IDIwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwMCAxMDBDMjAwIDE1NS4yMyAxNTUuMjMgMjAwIDEwMCAyMDBDNDQuNzcwMiAyMDAgMCAxNTUuMjMgMCAxMDBDMCA0NC43NzAyIDQ0Ljc3MDIgMCAxMDAgMEMxNTUuMjMgMCAyMDAgNDQuNzcwMiAyMDAgMTAwWiIgZmlsbD0iIzFBMUM2MyIvPgo8bWFzayBpZD0ibWFzazBfNDcyMF8yMDU4MCIgc3R5bGU9Im1hc2stdHlwZTpsdW1pbmFuY2UiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj4KPHBhdGggZD0iTTIwMCAwSDBWMjAwSDIwMFYwWiIgZmlsbD0id2hpdGUiLz4KPC9tYXNrPgo8ZyBtYXNrPSJ1cmwoI21hc2swXzQ3MjBfMjA1ODApIj4KPHBhdGggZD0iTTczLjY0OTEgMTUwLjA5M0M3My45OTk5IDE0OS42ODIgNzQuMjU3OSAxNDkuMzU1IDc0LjUzNjIgMTQ5LjA0OEM3OS4wMzIxIDE0NC4wNjUgODIuMjU3OSAxMzguNDIzIDgzLjQ1MTUgMTMxLjcyNkM4NC4zNTQ3IDEyNi42NDUgODMuODIyNSAxMjEuNjY5IDgyLjQ5OTkgMTE2LjczNEM4MC45OTE4IDExMS4xMTMgNzguODQ2NyAxMDUuNzMgNzYuNDYzNiAxMDAuNDRDNzMuNTQ4MyA5My45Njc5IDcwLjc4MjEgODcuNDM5NiA2OC45MTUyIDgwLjU2ODdDNjcuNzI1NyA3Ni4yMDU4IDY3LjA4ODYgNzEuNzkwNCA2Ny43NzgxIDY3LjI2NjJDNjguNjA0NyA2MS44NTA5IDcwLjg5NSA1Ny4wODQ4IDc0LjI0OTkgNTIuODAyNUM3NC43MzM3IDUyLjE4NTYgNzUuMjk0MiA1MS42MjkxIDc1LjcyOTcgNTAuOTg0Qzc2LjMzODYgNTAuMDg0OCA3Ny4xNTMxIDQ5Ljc5MDQgNzguMjAxNSA0OS43OTg1Qzg0LjEzMjkgNDkuODMwOCA5MC4wNjQ0IDQ5LjgzMDggOTUuOTkxOCA0OS44NDI5Qzk2LjQ4MzggNDkuODQyOSA5Ni45Nzk3IDQ5Ljg0MjkgOTcuNTQ4MyA0OS44NDI5Qzk2LjE0NSA1MS40Mzk2IDk0Ljc4MjEgNTIuODUwOSA5My41NzY1IDU0LjM4NzJDODcuNzA5NiA2MS44NzExIDg2LjE3MzMgNzAuMjcwMyA4OC40MzEzIDc5LjQ0NzdDOTAuMTUzMSA4Ni40NDc3IDkyLjg5NSA5My4wNjg3IDk1Ljg1NDcgOTkuNjEzQzk4LjgzNDYgMTA2LjIwNiAxMDEuNTQ4IDExMi44OTkgMTAzLjI3NCAxMTkuOTUyQzEwNS43OTggMTMwLjI1OCAxMDMuNzc0IDEzOS42MTMgOTcuNTE2IDE0OC4xNTNDOTYuMzkxIDE0OS42OSA5NS4yMTc2IDE1MC4yMzQgOTMuMzYyOCAxNTAuMTk4Qzg3LjE2NTIgMTUwLjA2OSA4MC45NjM2IDE1MC4xMTMgNzQuNzYyIDE1MC4wODlDNzQuNDUxNSAxNTAuMDg5IDc0LjE0MSAxNTAuMDg5IDczLjY1MzEgMTUwLjA4OSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTEyNC4wNCA5OS42MTdDMTIxLjkxNSA5NC45MTk0IDExOS45MTEgOTAuMTc3NSAxMTguMzA3IDg1LjI4NjRIOTguNTM2NEMxMDAuMjYyIDkwLjQ1NTcgMTAyLjQwNyA5NS40Njc4IDEwNC42NDkgMTAwLjQ0QzEwNi43NDYgMTA1LjA5MyAxMDguNjYxIDEwOS44MTkgMTEwLjExNyAxMTQuNzE0SDEyOS45ODRDMTI4LjM1NSAxMDkuNTUzIDEyNi4yNzQgMTA0LjU1NyAxMjQuMDQgOTkuNjEzIiBmaWxsPSIjQ0QyNTMxIi8+CjxwYXRoIGQ9Ik0xMzEuNTg5IDEyMC41NTJWMTIwLjc3SDExMS41NzNDMTEyLjE4NiAxMjQuMzc5IDExMi4yOTggMTI4LjAyNCAxMTEuNjM3IDEzMS43MjJDMTEwLjQ0NCAxMzguNDIzIDEwNy4yMjIgMTQ0LjA2MSAxMDIuNzIyIDE0OS4wNDRDMTAyLjQ0NCAxNDkuMzUxIDEwMi4xODYgMTQ5LjY3NyAxMDEuODM1IDE1MC4wODlDMTAyLjMyMyAxNTAuMDg5IDEwMi42MzMgMTUwLjA4OSAxMDIuOTQ0IDE1MC4wODlDMTA5LjE0NSAxNTAuMTEzIDExNS4zNDcgMTUwLjA2OSAxMjEuNTQ0IDE1MC4xOThDMTIzLjM5OSAxNTAuMjM4IDEyNC41NzMgMTQ5LjY5IDEyNS42OTggMTQ4LjE1N0MxMzEuODM1IDEzOS43ODIgMTMzLjg4NyAxMzAuNjI1IDEzMS41ODUgMTIwLjU1MiIgZmlsbD0iI0NEMjUzMSIvPgo8cGF0aCBkPSJNMTE2LjU2OCA3OS4yM0MxMTQuMzg3IDcwLjEzNzIgMTE1Ljk0MyA2MS44MTQ2IDEyMS43NjIgNTQuMzkxMkMxMjIuOTY4IDUyLjg1NDkgMTI0LjMzMSA1MS40NDM3IDEyNS43MzQgNDkuODQ2OUMxMjUuMTY1IDQ5Ljg0NjkgMTI0LjY2OSA0OS44NDY5IDEyNC4xNzcgNDkuODQ2OUMxMTguMjQ2IDQ5LjgzNDggMTEyLjMxNCA0OS44MzQ4IDEwNi4zODcgNDkuODAyNUMxMDUuMzM5IDQ5Ljc5ODUgMTA0LjUyNCA1MC4wODg4IDEwMy45MTUgNTAuOTg4QzEwMy40OCA1MS42MzMyIDEwMi45MTkgNTIuMTkzNyAxMDIuNDM1IDUyLjgwNjZDOTkuMDgwNSA1Ny4wODg4IDk2Ljc5MDIgNjEuODU1IDk1Ljk2MzYgNjcuMjcwM0M5NS4zNDY3IDcxLjMzMDggOTUuNzk4MyA3NS4zMDI1IDk2Ljc1OCA3OS4yM0gxMTYuNTY4WiIgZmlsbD0iI0NEMjUzMSIvPgo8cGF0aCBkPSJNMTI4LjMwNiAxNzEuODM5QzExOS4zMDIgMTc0Ljc5OSAxMTAuMzAyIDE3Ny43NTggMTAxLjI5OCAxODAuNzE4WiIgZmlsbD0iIzFBMUM2MyIvPgo8cGF0aCBkPSJNMTYyLjI3OCAzNi43NzAzTDE1My42NjkgNDQuODAyNUMxNjcuODIyIDU4Ljg3NTEgMTc2LjU4OSA3OC4zNjcgMTc2LjU4OSA5OS45MDMzQzE3Ni41ODkgMTMzLjE0NSAxNTUuNzEgMTYxLjUwOCAxMjYuMzU1IDE3Mi42MDVDMTE5Ljk5NiAxNzUuNzM0IDExMS41NTYgMTc4Ljk4OCAxMDEuMjk4IDE4MC43MThDNzcuODQyNiAxODQuNjY5IDU4LjY4NTQgMTc4LjMxMSA0OS4zNjI4IDE3NC40MjNDNjMuNTQ0MiAxODMuODY3IDgwLjU3MjUgMTg5LjM3NSA5OC44ODcgMTg5LjM3NUMxNDguMjk4IDE4OS4zNzUgMTg4LjM1OSAxNDkuMzE5IDE4OC4zNTkgOTkuOTAzM0MxODguMzU5IDc1LjI2MjIgMTc4LjM5NSA1Mi45NTE3IDE2Mi4yODIgMzYuNzcwM0gxNjIuMjc4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTM3LjcyMTggMTYzLjIzNEw0Ni4zMzA2IDE1NS4yMDJDMzIuMTc3NCAxNDEuMTI5IDIzLjQxMTMgMTIxLjYzNyAyMy40MTEzIDEwMC4xMDFDMjMuNDExMyA2Ni44NTkgNDQuMjkwMyAzOC40OTYxIDczLjY0NTEgMjcuMzk5M0M4MC4wMDQgMjQuMjcwMyA4OC40NDM1IDIxLjAxNjIgOTguNzAxNiAxOS4yODY0QzEyMi4xNTcgMTUuMzM0OCAxNDEuMzE0IDIxLjY5MzcgMTUwLjYzNyAyNS41ODA4QzEzNi40NTYgMTYuMTM3MiAxMTkuNDI3IDEwLjYyOTIgMTAxLjExMyAxMC42MjkyQzUxLjcwMTYgMTAuNjI5MiAxMS42NDExIDUwLjY4NTYgMTEuNjQxMSAxMDAuMTAxQzExLjY0MTEgMTI0Ljc0MiAyMS42MDQ4IDE0Ny4wNTMgMzcuNzE3NyAxNjMuMjM0SDM3LjcyMThaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c+CjxwYXRoIGQ9Ik0yODAuMDA2IDEyNS4wMzZDMjgwLjUzMyAxMzYuMTY1IDI5MS44MzUgMTQxLjU1NSAzMDMuNjU0IDE0MS41NTVDMzE0LjQzOCAxNDEuNTU1IDMyNS4wNDMgMTM3LjcyNiAzMjUuMDQzIDEyNi42MDhDMzI1LjA0MyAxMTcuMzg5IDMxOC40MzcgMTEzLjczOSAzMDcuMTI2IDExMC45NjRDMjg2LjYwMiAxMDUuOTIyIDI1OS40NzIgMTAyLjYyMSAyNTkuNDcyIDc0LjI3NzhDMjU5LjQ3MiA0OC4zNzE1IDI3OC45NTEgMzcuMDc0MiAzMDMuMTI3IDM3LjA3NDJDMzI1LjkwOSAzNy4wNzQyIDM0Ny42NDYgNDcuODU0NCAzNDcuNjQ2IDczLjkyOThIMzIzLjY1QzMyMi45NTQgNjMuNDk3NiAzMTMuNTYzIDU5LjY3ODggMzAzLjEyNyA1OS42Nzg4QzI5Mi42OSA1OS42Nzg4IDI4NC4xNzQgNjQuMzcyOCAyODQuMTc0IDczLjc2MDdDMjg0LjE3NCA4My4xNDg2IDI5NS4zMDcgODUuMjM3IDMwOS45MTEgODguNzE3N0MzMjkuNTYgOTMuNDExNyAzNTAuNjExIDEwMC4xOTQgMzUwLjYxMSAxMjYuMjY5QzM1MC42MTEgMTUyLjM0NSAzMjcuODI5IDE2My42NDIgMzAzLjgyMyAxNjRDMjc5LjQ3OSAxNjQgMjU2IDE1MS42NTkgMjU2IDEyNS4wNTZIMjgwLjAwNlYxMjUuMDM2WiIgZmlsbD0iIzFBMUM2MyIvPgo8cGF0aCBkPSJNMzUxLjMwOCA3NC40NDdIMzY0LjAwMlY1NC42MjdMMzg3LjEzMyA1MS4xNTYyVjc0LjQ0N0g0MTEuMTI5Vjk1LjEzMjNIMzg3LjEzM1YxMjkuNTUxQzM4Ny4xMzMgMTM4LjU5MSAzOTMuNzM4IDE0MS43MjQgNDAxLjIyIDE0MS43MjRDNDA1LjIxOSAxNDEuNzI0IDQwOS43MzYgMTQwLjg0OSA0MTMuMzk3IDEzOS40NTZWMTU5Ljk3M0M0MDcuNjU2IDE2MS44ODIgNDAxLjU2OCAxNjIuNzU3IDM5NS44MjggMTYyLjc1N0MzNzkuMTM0IDE2Mi43NTcgMzY0LjAwMiAxNTQuNTgyIDM2NC4wMDIgMTMxLjk4OFY5NS4xMzIzSDM1MS4zMDhWNzQuNDQ3WiIgZmlsbD0iIzFBMUM2MyIvPgo8cGF0aCBkPSJNNDQ2Ljk1MyA5NC42MTVDNDUxLjk5NyA4My42NjU3IDQ2NC4xNzQgNzIuNzA2NSA0ODAuMDAyIDcyLjcwNjVWOTguMjY0OEM0NjQuNjkyIDk2LjUyNDQgNDQ2Ljk1MyAxMDcuNDc0IDQ0Ni45NTMgMTI1LjAzNlYxNjEuMzc1SDQyMy44MjNWNzQuNDQ2OUg0NDYuOTUzVjk0LjYxNVoiIGZpbGw9IiMxQTFDNjMiLz4KPHBhdGggZD0iTTUwNS41NyAxMDguNjk3SDU0Ni40MzlDNTQ1LjIyNiA5NS40ODAzIDUzMy4yMjggOTEuMTM0NSA1MjYuMDk0IDkxLjEzNDVDNTE4LjA5NiA5MS4xMzQ1IDUwNy42NiA5NS40ODAzIDUwNS41NyAxMDguNjk3Wk01NjkuNzM5IDExNy4yMUM1NjkuNzM5IDExOS42NDYgNTY5LjU3IDEyMi4wODMgNTY5LjIxMiAxMjQuNTA5SDUwNS4yMTJDNTA1LjkwOSAxMzkuMTA4IDUxNi4zNDUgMTQ1LjAyNSA1MjYuNjAyIDE0NS4wMjVDNTMzLjcyNSAxNDUuMDI1IDU0MC42ODkgMTQyLjA3MiA1NDQuODU4IDEzNi42ODJINTY4LjMzNkM1NTkuMTI0IDE1Ni41MDIgNTQ1LjAyNyAxNjMuOTggNTI2LjYwMiAxNjMuOThDNTAxLjIxMyAxNjMuOTggNDgyLjI1MSAxNDYuMjQ5IDQ4Mi4yNTEgMTE3LjkwNkM0ODIuMjUxIDg5LjU2MzIgNTAxLjIxMyA3MS44MzE1IDUyNi42MDIgNzEuODMxNUM1NTEuOTkxIDcxLjgzMTUgNTY5LjcyOSA5MS42NTE2IDU2OS43MjkgMTE3LjIiIGZpbGw9IiMxQTFDNjMiLz4KPHBhdGggZD0iTTY0Ni45NSAxMTcuOTA2QzY0Ni45NSAxMDAuMzQzIDYzNC4wNzcgOTIuNjk1NiA2MjIuNDI3IDkyLjY5NTZDNjEwLjc3NyA5Mi42OTU2IDU5Ny4zODYgOTkuODI2MSA1OTcuMjA3IDExNy45MDZDNTk3LjM3NiAxMzUuOTg1IDYxMC41OTggMTQzLjExNiA2MjIuNDI3IDE0My4xMTZDNjM0LjI1NiAxNDMuMTE2IDY0Ni45NSAxMzUuNDY4IDY0Ni45NSAxMTcuOTA2Wk02NDQuODYxIDg0LjUzMDlWNzQuNDQ2OEg2NjcuOTkxVjE2MS4zNzVINjQ0Ljg2MVYxNTEuMTIxQzYzNy41NTkgMTYwLjY4OCA2MjUuMzgyIDE2My45OSA2MTcuMzgzIDE2My45OUM1OTEuNDc3IDE2My45OSA1NzQuNDM1IDE0NC41MTggNTc0LjI1NiAxMTcuOTE2QzU3NC40MzUgOTEuMzEzMyA1OTEuNDc3IDcxLjg0MTMgNjE3LjM4MyA3MS44NDEzQzYyNS4zODIgNzEuODQxMyA2MzcuNzI4IDc0Ljk3MzkgNjQ0Ljg2MSA4NC41MzA5WiIgZmlsbD0iIzFBMUM2MyIvPgo8cGF0aCBkPSJNNzU4LjA3NiA4OC4xODA3Qzc2NC4xNjQgNzcuNzQ4NSA3NzMuNzI1IDcxLjg0MTMgNzg2LjA4MSA3MS44NDEzQzgxMS44MTggNzEuODQxMyA4MTUuNjQ4IDkxLjMxMzMgODE1LjY0OCAxMDIuMDkzVjE2MS4zNzVINzkyLjUxOFYxMDkuOTJDNzkyLjUxOCA5OC40NDM3IDc4Ny4xMjYgOTIuNzA1NiA3NzcuOTEzIDkyLjcwNTZDNzY4LjE3MyA5Mi43MDU2IDc2MS4yMTkgMTAxLjA0OSA3NjEuMjE5IDExMS42NlYxNjEuMzg1SDczOC4wODlWMTA5LjkzQzczOC4wODkgOTguNDUzNyA3MzIuNjk3IDkyLjcxNTUgNzIzLjQ4NCA5Mi43MTU1QzcxMy41NjYgOTIuNzE1NSA3MDYuNzkxIDEwMS40MDcgNzA2Ljc5MSAxMTIuNTM2VjE2MS4zODVINjgzLjY2Vjc0LjQ1NjhINzA2Ljc5MVY4NS4wNThDNzExLjQ4NiA3Ni44ODMzIDcyMC42OTkgNzEuODQxMyA3MzEuNjYyIDcxLjg0MTNDNzQ2Ljc5NCA3MS44NDEzIDc1NC40NDQgODAuMDE2IDc1OC4wOTYgODguMTgwNyIgZmlsbD0iIzFBMUM2MyIvPgo8cGF0aCBkPSJNODUzLjAyNSAzNy4wNjQ1SDgyOS44OTVWMTYxLjM2NUg4NTMuMDI1VjM3LjA2NDVaIiBmaWxsPSIjMUExQzYzIi8+CjxwYXRoIGQ9Ik04NjguNjc1IDc0LjQ0NzFIODkxLjgwNVYxNjEuMzc1SDg2OC42NzVWNzQuNDQ3MVpNODgwLjE1NSAzNy4wNjQ1Qzg4Ny4yODggMzcuMDY0NSA4OTMuMTk4IDQyLjEwNjUgODkzLjE5OCA0OS45MzMxQzg5My4xOTggNTcuNzU5NiA4ODcuMjg4IDYyLjYyMjcgODgwLjE1NSA2Mi42MjI3Qzg3My4wMjIgNjIuNjIyNyA4NjcuMjgyIDU3Ljc0OTcgODY3LjI4MiA0OS45MzMxQzg2Ny4yODIgNDIuMTE2NCA4NzIuODQzIDM3LjA2NDUgODgwLjE1NSAzNy4wNjQ1WiIgZmlsbD0iIzFBMUM2MyIvPgo8cGF0aCBkPSJNOTg4LjY3NCAxMDcuMTI1VjE2MS4zNjVIOTY1LjU0NFYxMDkuNzMxQzk2NS41NDQgOTguMDg1NiA5NTkuNDU1IDkyLjUxNjUgOTQ5LjAxOSA5Mi41MTY1QzkzNy4zNyA5Mi41MTY1IDkzMC41ODUgMTAyLjA4MyA5MzAuNTg1IDExNC40MTVWMTYxLjM1NUg5MDcuNDU0Vjc0LjQyNjhIOTMwLjU4NVY4NC44NTlDOTM1LjYyOSA3Ni41MTUyIDk0My45NzUgNzEuODIxMyA5NTUuODA0IDcxLjgyMTNDOTc0LjkzNSA3MS44MjEzIDk4OC42NzQgODIuOTQ5NiA5ODguNjc0IDEwNy4xMTYiIGZpbGw9IiMxQTFDNjMiLz4KPHBhdGggZD0iTTEwMjEuODggMTA4LjY5N0gxMDYyLjc1QzEwNjEuNTQgOTUuNDgwMyAxMDQ5LjUzIDkxLjEzNDUgMTA0Mi40MSA5MS4xMzQ1QzEwMzQuNDEgOTEuMTM0NSAxMDIzLjk3IDk1LjQ4MDMgMTAyMS44OCAxMDguNjk3Wk0xMDg2LjA1IDExNy4yMUMxMDg2LjA1IDExOS42NDYgMTA4NS44OCAxMjIuMDgzIDEwODUuNTIgMTI0LjUwOUgxMDIxLjUyQzEwMjIuMjIgMTM5LjEwOCAxMDMyLjY2IDE0NS4wMjUgMTA0Mi45MSAxNDUuMDI1QzEwNTAuMDQgMTQ1LjAyNSAxMDU3IDE0Mi4wNzIgMTA2MS4xNyAxMzYuNjgySDEwODQuNjVDMTA3NS40NCAxNTYuNTAyIDEwNjEuMzUgMTYzLjk4IDEwNDIuOTEgMTYzLjk4QzEwMTcuNTIgMTYzLjk4IDk5OC41NjMgMTQ2LjI0OSA5OTguNTYzIDExNy45MDZDOTk4LjU2MyA4OS41NjMyIDEwMTcuNTIgNzEuODMxNSAxMDQyLjkxIDcxLjgzMTVDMTA2OC4zMSA3MS44MzE1IDEwODYuMDQgOTEuNjUxNiAxMDg2LjA0IDExNy4yIiBmaWxsPSIjMUExQzYzIi8+CjxwYXRoIGQ9Ik0xMTI0LjkyIDY3Ljg2MzJDMTEzMi43OCA2Ny44NjMyIDExMzYuMTQgNjIuNDczMSAxMTM2LjE0IDU4LjMyNjFDMTEzNi4xNCA1NC4xNzkxIDExMzMgNDkuNjg0MSAxMTI0LjkyIDQ5LjY4NDFDMTExNi44NCA0OS42ODQxIDExMTMuNyA1NS4wNzQyIDExMTMuNyA1OC43NzM3SDEwOTkuMjFDMTA5OS4yMSA0NS4zMDg0IDExMDguOTggMzYgMTEyNC45MiAzNkMxMTQwLjg2IDM2IDExNTAuNjMgNDQuODYwOCAxMTUwLjYzIDU2Ljk4MzZDMTE1MC42MyA2My45MzUgMTE0Ny4xNSA3MS4wMDU4IDExNDAuODcgNzQuMDM5QzExNDkuODUgNzcuNTE5NyAxMTU0IDg2LjE2MTcgMTE1NCA5My42OEMxMTU0IDEwNi44MDcgMTE0My44OSAxMTcuOTE2IDExMjQuOTIgMTE3LjkxNkMxMTA1Ljk1IDExNy45MTYgMTA5NS44NCAxMDcuNDgzIDEwOTUuODQgOTEuOTk5M0gxMTExLjc4QzExMTEuNzggOTcuNjA4MiAxMTE1LjgyIDEwMy4yMTcgMTEyNC45MSAxMDMuMjE3QzExMzQgMTAzLjIxNyAxMTM4LjA0IDk3LjQ4ODkgMTEzOC4wNCA5MS44OEMxMTM4LjA0IDg3Ljk1MTggMTEzNC45IDgwLjg4MSAxMTI0LjkxIDgwLjg4MUgxMTE1LjE0VjY3Ljg2MzJIMTEyNC45MUgxMTI0LjkyWiIgZmlsbD0iI0NEMjUzMSIvPgo8L3N2Zz4K" style="margin: 0 5px" />
+            </div>
+        </div>
     </div>
+    <script>
+        var cat = document.getElementsByClassName('cat');
+        if (cat.length > 0 && (cat[0].innerHTML == '' || cat[0].innerHTML == '%'+'C')) {
+            Array.prototype.forEach.call(cat, function(e) {
+                e.parentNode.style.display = 'none';
+            });
+        }
+ 
+        var cr = document.getElementsByClassName('reason-custom');
+        Array.prototype.forEach.call(cr, function(e) {
+            var cr = e.innerHTML.trim();
+            if (cr == '' || cr == '%'+'cr') {
+                e.innerHTML = 'This web page has been identified as potentially containing harmful content.';
+            }
+        });
+ 
+        function isTouchDevice() {
+            return (('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (navigator.msMaxTouchPoints > 0));
+        }
+ 
+        var ii = document.getElementsByClassName('info-icon');
+        Array.prototype.forEach.call(ii, function(e) {
+            var msg = 'The System Classification is provided as a guide. The listed category may not be the direct cause for this website not being accessible. To find out more, contact support.';
+ 
+            if (isTouchDevice()) {
+                e.addEventListener('click', function() {
+                    alert(msg);
+                });
+            }
+ 
+            e.setAttribute('title', msg);
+        });
 
-    <!-- Table of Contents -->
-    <div class="toc">
-      <h2>Contents</h2>
-      <ol>
-        <li><a href="#s1">Acceptance of Terms</a></li>
-        <li><a href="#s2">Description of Service</a></li>
-        <li><a href="#s3">Free Tier vs. Pro Features</a></li>
-        <li><a href="#s4">Subscription Terms &amp; Pricing</a></li>
-        <li><a href="#s5">Billing &amp; Payments</a></li>
-        <li><a href="#s6">Cancellation &amp; Refunds</a></li>
-        <li><a href="#s7">Health Disclaimer</a></li>
-        <li><a href="#s8">User Responsibilities</a></li>
-        <li><a href="#s9">Intellectual Property</a></li>
-        <li><a href="#s10">Disclaimer of Warranties</a></li>
-        <li><a href="#s11">Limitation of Liability</a></li>
-        <li><a href="#s12">Indemnification</a></li>
-        <li><a href="#s13">Termination</a></li>
-        <li><a href="#s14">Governing Law &amp; Disputes</a></li>
-        <li><a href="#s15">Changes to Terms</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ol>
-    </div>
-
-    <!-- Section 1 -->
-    <section class="section" id="s1">
-      <div class="section-number">Section 01</div>
-      <h2>Acceptance of Terms</h2>
-      <p>By downloading, installing, or using Breathwork Pro ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-      <p>These Terms constitute a legally binding agreement between you and <strong>SmartForage</strong> ("we," "us," or "our"), a business based in New Zealand. Please read them carefully.</p>
-      <p>These Terms apply to all users of the App, including users of the free tier and subscribers to Breathwork Pro. Use of the App is also subject to our <a href="privacy_policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
-    </section>
-
-    <!-- Section 2 -->
-    <section class="section" id="s2">
-      <div class="section-number">Section 02</div>
-      <h2>Description of Service</h2>
-      <p>Breathwork Pro is a mobile application for iOS and Android that provides guided breathing exercises, breathwork programs, and related wellness tools. The App includes:</p>
-      <ul>
-        <li>30+ structured breathing exercises across multiple categories (relaxation, focus, sleep, performance, cold exposure, and more).</li>
-        <li>Haptic-guided exercise modes enabling eyes-closed, device-free practice.</li>
-        <li>Streak tracking and a calendar heat map for visualising practice consistency.</li>
-        <li>7-day guided challenges.</li>
-        <li>A free tier with access to core exercises and a Pro subscription tier with access to the full exercise library and premium features.</li>
-      </ul>
-    </section>
-
-    <!-- Section 3 -->
-    <section class="section" id="s3">
-      <div class="section-number">Section 03</div>
-      <h2>Free Tier vs. Pro Features</h2>
-      <p>Breathwork Pro is available in two tiers:</p>
-      <table class="feature-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Free</th>
-            <th>Pro</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Core breathing exercises (selected)</td>
-            <td><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Full library of 30+ exercises</td>
-            <td><span class="cross">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Haptic-guided eyes-closed mode</td>
-            <td><span class="cross">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Streak tracking &amp; calendar heat map</td>
-            <td><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>7-day guided challenges</td>
-            <td><span class="cross">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Session history &amp; statistics</td>
-            <td>Limited</td>
-            <td>Full</td>
-          </tr>
-          <tr>
-            <td>Advanced customisation options</td>
-            <td><span class="cross">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <p>We reserve the right to adjust which features are available in each tier at any time. Existing Pro subscribers will not have features removed during an active paid subscription period without notice.</p>
-    </section>
-
-    <!-- Section 4 -->
-    <section class="section" id="s4">
-      <div class="section-number">Section 04</div>
-      <h2>Subscription Terms &amp; Pricing</h2>
-      <p>Breathwork Pro offers the following subscription options for access to Pro features:</p>
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Plan</th>
-            <th>Price</th>
-            <th>Billing</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Monthly</strong></td>
-            <td><span class="price-tag">USD $1.99</span><span class="price-note">per month</span></td>
-            <td>Every 30 days, auto-renewing</td>
-            <td>Cancel anytime</td>
-          </tr>
-          <tr>
-            <td><strong>Annual</strong></td>
-            <td><span class="price-tag">USD $14.99</span><span class="price-note">per year</span></td>
-            <td>Every 12 months, auto-renewing</td>
-            <td>~37% saving vs monthly</td>
-          </tr>
-          <tr>
-            <td><strong>Lifetime</strong></td>
-            <td><span class="price-tag">USD $29.99</span><span class="price-note">one-time</span></td>
-            <td>One-time purchase, no renewal</td>
-            <td>Permanent Pro access</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>Prices are displayed in USD and may vary by region due to local App Store/Google Play pricing. Actual prices in your local currency are shown at the point of purchase in your respective store.</p>
-      <p>Prices are subject to change. Price changes for auto-renewing subscriptions will be communicated with reasonable notice before taking effect. You will have the opportunity to cancel before any price change applies to your subscription.</p>
-
-      <h3>Auto-Renewal</h3>
-      <p>Monthly and annual subscriptions automatically renew unless you cancel at least 24 hours before the end of the current billing period. Your account will be charged for renewal within 24 hours prior to the end of the current period at the then-current price.</p>
-    </section>
-
-    <!-- Section 5 -->
-    <section class="section" id="s5">
-      <div class="section-number">Section 05</div>
-      <h2>Billing &amp; Payments</h2>
-      <p>All billing and payment processing for Breathwork Pro subscriptions is managed exclusively through the platform you use to download the app:</p>
-      <ul>
-        <li><strong>iOS users:</strong> Subscriptions are billed through Apple App Store. Your Apple ID account is charged. Manage your subscription via <em>Settings → [Your Name] → Subscriptions</em> on your iPhone or iPad.</li>
-        <li><strong>Android users:</strong> Subscriptions are billed through Google Play Store. Your Google account is charged. Manage your subscription via <em>Google Play → Account → Subscriptions</em>.</li>
-      </ul>
-      <p>SmartForage does not collect, store, or have access to your payment card details, bank account information, or any financial information. All billing disputes should be directed to Apple or Google, as applicable.</p>
-      <p>Subscription status is verified within the app using RevenueCat, which receives only anonymous subscription status from Apple/Google — not your payment details. See our Privacy Policy for details.</p>
-    </section>
-
-    <!-- Section 6 -->
-    <section class="section" id="s6">
-      <div class="section-number">Section 06</div>
-      <h2>Cancellation &amp; Refunds</h2>
-
-      <h3>Cancellation</h3>
-      <p>You may cancel your subscription at any time through the Apple App Store or Google Play Store. Upon cancellation:</p>
-      <ul>
-        <li>Your Pro access continues until the end of the current paid billing period.</li>
-        <li>You will not be charged at the next renewal date.</li>
-        <li>No partial refunds are provided for unused time within a billing period, except as required by applicable law or platform policy.</li>
-      </ul>
-      <p><strong>Lifetime purchases</strong> are non-refundable except as required by applicable law or under Apple/Google's own refund policies.</p>
-
-      <h3>Refunds</h3>
-      <p>Refund requests must be submitted directly to Apple or Google, as SmartForage does not process payments and cannot issue refunds directly. To request a refund:</p>
-      <ul>
-        <li><strong>Apple:</strong> Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a></li>
-        <li><strong>Google:</strong> Visit <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">Google Play refund help</a></li>
-      </ul>
-      <p>If you have a complaint about the App that you believe warrants a refund and you are unable to obtain one through Apple or Google, please contact us at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a> and we will do our best to assist.</p>
-
-      <h3>Consumer Rights (New Zealand &amp; Australia)</h3>
-      <p>Nothing in these Terms limits rights you may have under the Consumer Guarantees Act 1993 (New Zealand), the Fair Trading Act 1986 (New Zealand), or equivalent consumer protection legislation. If the App fails to comply with applicable consumer guarantees, you may be entitled to a remedy under those Acts.</p>
-    </section>
-
-    <!-- Section 7 -->
-    <section class="section" id="s7">
-      <div class="section-number">Section 07</div>
-      <h2>Health Disclaimer</h2>
-      <div class="warning-card">
-        <p><strong>Important — please read this section carefully.</strong></p>
-      </div>
-      <p>Breathwork Pro provides guided breathing exercises for educational, wellness, and personal development purposes. The App is <strong>not a medical device</strong>, and the content provided within the App is <strong>not medical advice</strong>.</p>
-      <p>The breathing techniques included in Breathwork Pro (including but not limited to box breathing, Wim Hof Method-style breathing, 4-7-8, pranayama techniques, CO₂ tolerance training, and breath retention exercises) may not be appropriate for all individuals. Some techniques involve intentional hyperventilation or breath retention which carry inherent risks.</p>
-
-      <h3>Contraindications</h3>
-      <p>You should not use certain breathing exercises in this app, and should consult a qualified physician before using this app at all, if you have any of the following conditions:</p>
-      <ul>
-        <li>Cardiovascular disease, heart conditions, or a history of stroke</li>
-        <li>Respiratory disorders including asthma, COPD, or emphysema</li>
-        <li>Epilepsy or seizure disorders</li>
-        <li>Anxiety disorders, PTSD, or panic disorder (certain exercises may be beneficial but should be introduced under professional guidance)</li>
-        <li>Pregnancy</li>
-        <li>Any condition for which breath-holding or altered breathing may pose a risk</li>
-      </ul>
-
-      <h3>Safety Rules</h3>
-      <p><strong>Never practice breath retention exercises:</strong></p>
-      <ul>
-        <li>While driving, cycling, or operating any vehicle or machinery.</li>
-        <li>While in or near water (including baths, pools, or open water).</li>
-        <li>While standing up unsupported, to avoid injury from potential fainting.</li>
-        <li>Alone, if you are a beginner to intensive breath retention techniques.</li>
-      </ul>
-      <p>SmartForage assumes no responsibility for any injury, health consequence, or adverse event arising from the use of breathing exercises or techniques provided in the App. By using the App, you acknowledge these risks and accept sole responsibility for your safety and health.</p>
-    </section>
-
-    <!-- Section 8 -->
-    <section class="section" id="s8">
-      <div class="section-number">Section 08</div>
-      <h2>User Responsibilities</h2>
-      <p>By using Breathwork Pro, you agree to:</p>
-      <ul>
-        <li>Use the App in accordance with these Terms and all applicable laws and regulations.</li>
-        <li>Be at least 13 years of age. Users under 18 should obtain parental consent before using the App and before engaging in advanced breathwork techniques.</li>
-        <li>Not attempt to reverse-engineer, decompile, disassemble, or otherwise attempt to derive the source code of the App.</li>
-        <li>Not use the App for any commercial purpose without our prior written consent.</li>
-        <li>Not attempt to circumvent subscription verification mechanisms or unlock Pro features without a valid paid subscription.</li>
-        <li>Take full responsibility for your own health and safety when practicing the breathing exercises provided in the App.</li>
-      </ul>
-    </section>
-
-    <!-- Section 9 -->
-    <section class="section" id="s9">
-      <div class="section-number">Section 09</div>
-      <h2>Intellectual Property</h2>
-      <p>All content, design, code, graphics, text, exercise programs, challenge structures, and other materials in Breathwork Pro are owned by or licensed to SmartForage and are protected by applicable intellectual property laws, including copyright, trademark, and trade secret law.</p>
-      <p>You are granted a limited, non-exclusive, non-transferable, revocable licence to use the App on your personal device(s) in accordance with these Terms and any applicable App Store or Google Play terms of service. This licence does not include:</p>
-      <ul>
-        <li>The right to copy, modify, or distribute the App or any of its content.</li>
-        <li>The right to create derivative works based on the App.</li>
-        <li>The right to use SmartForage or Breathwork Pro trademarks, logos, or branding without prior written permission.</li>
-      </ul>
-      <p>The breathing techniques themselves (e.g., box breathing, Wim Hof Method, 4-7-8) are not proprietary to SmartForage. Our intellectual property relates to the specific implementation, design, content, and user experience of the App.</p>
-    </section>
-
-    <!-- Section 10 -->
-    <section class="section" id="s10">
-      <div class="section-number">Section 10</div>
-      <h2>Disclaimer of Warranties</h2>
-      <p>To the maximum extent permitted by applicable law, the App is provided on an <strong>"as is" and "as available" basis</strong>, without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
-      <p>SmartForage does not warrant that:</p>
-      <ul>
-        <li>The App will be uninterrupted, error-free, or free of viruses or other harmful components.</li>
-        <li>The results obtained from using the App will be accurate or reliable.</li>
-        <li>The App will meet your specific health, wellness, or fitness goals.</li>
-        <li>Any specific breathing technique will produce any particular result for any individual user.</li>
-      </ul>
-      <p>Nothing in this clause limits your rights under applicable New Zealand consumer protection legislation that cannot be excluded by contract.</p>
-    </section>
-
-    <!-- Section 11 -->
-    <section class="section" id="s11">
-      <div class="section-number">Section 11</div>
-      <h2>Limitation of Liability</h2>
-      <p>To the maximum extent permitted by applicable law, SmartForage and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, goodwill, or other intangible losses, resulting from:</p>
-      <ul>
-        <li>Your use of or inability to use the App.</li>
-        <li>Any injury, harm, or health consequence arising from the practice of breathing exercises in the App.</li>
-        <li>Unauthorised access to or use of your device or data.</li>
-        <li>Any interruption or cessation of the App's functionality.</li>
-        <li>Any bugs, errors, or inaccuracies in the App's content.</li>
-      </ul>
-      <p>In no event shall SmartForage's total liability to you for all claims relating to the App exceed the amount you paid for the App in the twelve (12) months preceding the event giving rise to the claim, or NZD $50.00, whichever is greater.</p>
-      <p>This limitation of liability does not exclude or limit liability that cannot be excluded or limited under the Consumer Guarantees Act 1993 (NZ) or other applicable legislation that grants you non-excludable rights as a consumer.</p>
-    </section>
-
-    <!-- Section 12 -->
-    <section class="section" id="s12">
-      <div class="section-number">Section 12</div>
-      <h2>Indemnification</h2>
-      <p>You agree to indemnify, defend, and hold harmless SmartForage and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
-      <ul>
-        <li>Your use of the App in violation of these Terms.</li>
-        <li>Your violation of any applicable law or third-party rights.</li>
-        <li>Your failure to follow the health and safety guidance set out in these Terms and within the App.</li>
-      </ul>
-    </section>
-
-    <!-- Section 13 -->
-    <section class="section" id="s13">
-      <div class="section-number">Section 13</div>
-      <h2>Termination</h2>
-      <p>We reserve the right to suspend or terminate your access to the App at any time, with or without notice, if we believe you have violated these Terms or applicable law.</p>
-      <p>Upon termination:</p>
-      <ul>
-        <li>Your right to use the App ceases immediately.</li>
-        <li>Any locally stored data on your device will remain on your device until you delete the App.</li>
-        <li>Active subscription entitlements will not be refunded except as required by the Apple App Store or Google Play refund policies.</li>
-      </ul>
-      <p>You may terminate your use of the App at any time by uninstalling it from your device. Remember to cancel any active subscription through your App Store or Google Play account before or after uninstalling to avoid future charges.</p>
-    </section>
-
-    <!-- Section 14 -->
-    <section class="section" id="s14">
-      <div class="section-number">Section 14</div>
-      <h2>Governing Law &amp; Disputes</h2>
-      <p>These Terms are governed by and construed in accordance with the laws of <strong>New Zealand</strong>, without regard to conflict of law principles. The courts of New Zealand shall have exclusive jurisdiction over any disputes arising from or relating to these Terms or the App.</p>
-      <p>If you are a consumer in another jurisdiction, you may also have the benefit of mandatory consumer protections in your home jurisdiction that cannot be waived by choice of law. Nothing in this clause is intended to deprive you of those protections.</p>
-
-      <h3>Dispute Resolution</h3>
-      <p>Before initiating formal legal proceedings, we encourage you to contact us at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a> to discuss the issue. We will make a genuine effort to resolve disputes amicably within 30 days of receiving written notice of a complaint.</p>
-    </section>
-
-    <!-- Section 15 -->
-    <section class="section" id="s15">
-      <div class="section-number">Section 15</div>
-      <h2>Changes to Terms</h2>
-      <p>We may revise these Terms at any time. When we make material changes, we will:</p>
-      <ul>
-        <li>Update the "Effective Date" at the top of this page.</li>
-        <li>Display an in-app notification for significant changes.</li>
-        <li>Where required by law, seek your consent before applying material changes.</li>
-      </ul>
-      <p>Your continued use of the App after changes take effect constitutes your acceptance of the revised Terms. If you do not agree to the revised Terms, stop using the App and cancel any active subscription.</p>
-    </section>
-
-    <!-- Contact -->
-    <div class="contact-section" id="contact">
-      <h2>Contact Us</h2>
-      <p>Questions about these Terms, subscription issues, or legal enquiries:</p>
-      <a class="contact-link" href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a>
-      <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">SmartForage · New Zealand · Response within 5 business days</p>
-    </div>
-
-    <!-- Footer -->
-    <div class="doc-footer">
-      <p>© 2026 SmartForage. Breathwork Pro is developed and published by SmartForage, New Zealand.</p>
-      <p style="margin-top: 6px;">
-        <a href="privacy_policy.html">Privacy Policy</a>
-        &nbsp;·&nbsp;
-        <a href="terms_of_service.html">Terms of Service</a>
-      </p>
-    </div>
-
-  </div>
+        var br = document.getElementsByClassName('reason_code');
+        Array.prototype.forEach.call(br, function(e) {
+            var sn = '50028586';
+            if (sn != '%'+'s3id') {
+                e.innerHTML += ' / SN '+sn;
+            }
+        });
+ 
+        window.addEventListener('popstate', function(e) {
+            location.href = location.href;
+        });
+    </script>
 </body>
 </html>
