@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service – Breathwork Pro</title>
+  <style>
+    :root {
+      --bg-primary: #0a0f1e;
+      --bg-secondary: #111827;
+      --bg-card: #1a2235;
+      --bg-card-border: #1e2d45;
+      --accent: #4fa3e8;
+      --accent-light: #7dc4f5;
+      --accent-glow: rgba(79, 163, 232, 0.15);
+      --text-primary: #e8f0fe;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --divider: #1e2d45;
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.1);
+      --warning-border: rgba(245, 158, 11, 0.25);
+      --heading-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+      --body-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--body-font);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 400px;
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 163, 232, 0.12), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-header {
+      padding: 48px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 48px;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(79, 163, 232, 0.3);
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .logo-mark svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .site-header h1 {
+      font-family: var(--heading-font);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .doc-title {
+      font-family: var(--heading-font);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    /* Warning card */
+    .warning-card {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+    }
+
+    .warning-card p {
+      color: #fcd34d !important;
+      font-size: 14px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .warning-card strong {
+      color: #fde68a;
+    }
+
+    /* Highlight card */
+    .highlight-card {
+      background: var(--accent-glow);
+      border: 1px solid rgba(79, 163, 232, 0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-card p {
+      color: var(--accent-light) !important;
+      font-size: 14px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .highlight-card strong {
+      color: #a8d8f8;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    @media (max-width: 520px) {
+      .toc ol { grid-template-columns: 1fr; }
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+    }
+
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero) ". ";
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .toc a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover {
+      color: var(--accent-light);
+    }
+
+    /* Pricing table */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .pricing-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .pricing-table td {
+      padding: 12px 14px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--divider);
+      vertical-align: top;
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pricing-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .price-tag {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Features comparison */
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .feature-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .feature-table td {
+      padding: 10px 14px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .feature-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .check {
+      color: #4ade80;
+      font-size: 15px;
+    }
+
+    .cross {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 48px;
+      scroll-margin-top: 24px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-family: var(--heading-font);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .section p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section ul,
+    .section ol {
+      margin: 12px 0 16px 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .section li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .section h3 {
+      font-family: var(--heading-font);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 24px 0 10px;
+    }
+
+    /* Contact footer */
+    .contact-section {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .contact-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 10px 24px;
+      border: 1px solid rgba(79, 163, 232, 0.35);
+      border-radius: 8px;
+      background: var(--accent-glow);
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      background: rgba(79, 163, 232, 0.25);
+      border-color: var(--accent);
+    }
+
+    .doc-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--divider);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .doc-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(79, 163, 232, 0.4);
+    }
+
+    a:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="12" stroke="#4fa3e8" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="14" cy="14" r="7" stroke="#4fa3e8" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="14" cy="14" r="3" fill="#4fa3e8"/>
+        </svg>
+      </div>
+      <h1>Breathwork Pro</h1>
+      <div class="doc-title">Terms of Service</div>
+      <div class="meta-info">
+        <span class="meta-badge">Effective: March 2026</span>
+        <span class="meta-badge">SmartForage Ltd</span>
+        <span class="meta-badge">Governing Law: New Zealand</span>
+      </div>
+    </header>
+
+    <!-- Health Disclaimer Warning -->
+    <div class="warning-card">
+      <p><strong>Health Disclaimer:</strong> Breathwork Pro is a wellness tool for educational and personal practice purposes only. It is <strong>NOT medical advice</strong> and is <strong>NOT a substitute for professional medical treatment</strong>. Consult a qualified healthcare provider before beginning any breathing practice, especially if you have respiratory, cardiac, or neurological conditions. Never practice breath retention while driving, swimming, or operating machinery.</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#s1">Acceptance of Terms</a></li>
+        <li><a href="#s2">Description of Service</a></li>
+        <li><a href="#s3">Free Tier vs. Pro Features</a></li>
+        <li><a href="#s4">Subscription Terms &amp; Pricing</a></li>
+        <li><a href="#s5">Billing &amp; Payments</a></li>
+        <li><a href="#s6">Cancellation &amp; Refunds</a></li>
+        <li><a href="#s7">Health Disclaimer</a></li>
+        <li><a href="#s8">User Responsibilities</a></li>
+        <li><a href="#s9">Intellectual Property</a></li>
+        <li><a href="#s10">Disclaimer of Warranties</a></li>
+        <li><a href="#s11">Limitation of Liability</a></li>
+        <li><a href="#s12">Indemnification</a></li>
+        <li><a href="#s13">Termination</a></li>
+        <li><a href="#s14">Governing Law &amp; Disputes</a></li>
+        <li><a href="#s15">Changes to Terms</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="section" id="s1">
+      <div class="section-number">Section 01</div>
+      <h2>Acceptance of Terms</h2>
+      <p>By downloading, installing, or using Breathwork Pro ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+      <p>These Terms constitute a legally binding agreement between you and <strong>SmartForage</strong> ("we," "us," or "our"), a business based in New Zealand. Please read them carefully.</p>
+      <p>These Terms apply to all users of the App, including users of the free tier and subscribers to Breathwork Pro. Use of the App is also subject to our <a href="privacy_policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section" id="s2">
+      <div class="section-number">Section 02</div>
+      <h2>Description of Service</h2>
+      <p>Breathwork Pro is a mobile application for iOS and Android that provides guided breathing exercises, breathwork programs, and related wellness tools. The App includes:</p>
+      <ul>
+        <li>30+ structured breathing exercises across multiple categories (relaxation, focus, sleep, performance, cold exposure, and more).</li>
+        <li>Haptic-guided exercise modes enabling eyes-closed, device-free practice.</li>
+        <li>Streak tracking and a calendar heat map for visualising practice consistency.</li>
+        <li>7-day guided challenges.</li>
+        <li>A free tier with access to core exercises and a Pro subscription tier with access to the full exercise library and premium features.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section" id="s3">
+      <div class="section-number">Section 03</div>
+      <h2>Free Tier vs. Pro Features</h2>
+      <p>Breathwork Pro is available in two tiers:</p>
+      <table class="feature-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Pro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Core breathing exercises (selected)</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Full library of 30+ exercises</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Haptic-guided eyes-closed mode</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Streak tracking &amp; calendar heat map</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>7-day guided challenges</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Session history &amp; statistics</td>
+            <td>Limited</td>
+            <td>Full</td>
+          </tr>
+          <tr>
+            <td>Advanced customisation options</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We reserve the right to adjust which features are available in each tier at any time. Existing Pro subscribers will not have features removed during an active paid subscription period without notice.</p>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="section" id="s4">
+      <div class="section-number">Section 04</div>
+      <h2>Subscription Terms &amp; Pricing</h2>
+      <p>Breathwork Pro offers the following subscription options for access to Pro features:</p>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Plan</th>
+            <th>Price</th>
+            <th>Billing</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Monthly</strong></td>
+            <td><span class="price-tag">USD $1.99</span><span class="price-note">per month</span></td>
+            <td>Every 30 days, auto-renewing</td>
+            <td>Cancel anytime</td>
+          </tr>
+          <tr>
+            <td><strong>Annual</strong></td>
+            <td><span class="price-tag">USD $14.99</span><span class="price-note">per year</span></td>
+            <td>Every 12 months, auto-renewing</td>
+            <td>~37% saving vs monthly</td>
+          </tr>
+          <tr>
+            <td><strong>Lifetime</strong></td>
+            <td><span class="price-tag">USD $29.99</span><span class="price-note">one-time</span></td>
+            <td>One-time purchase, no renewal</td>
+            <td>Permanent Pro access</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Prices are displayed in USD and may vary by region due to local App Store/Google Play pricing. Actual prices in your local currency are shown at the point of purchase in your respective store.</p>
+      <p>Prices are subject to change. Price changes for auto-renewing subscriptions will be communicated with reasonable notice before taking effect. You will have the opportunity to cancel before any price change applies to your subscription.</p>
+
+      <h3>Auto-Renewal</h3>
+      <p>Monthly and annual subscriptions automatically renew unless you cancel at least 24 hours before the end of the current billing period. Your account will be charged for renewal within 24 hours prior to the end of the current period at the then-current price.</p>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="section" id="s5">
+      <div class="section-number">Section 05</div>
+      <h2>Billing &amp; Payments</h2>
+      <p>All billing and payment processing for Breathwork Pro subscriptions is managed exclusively through the platform you use to download the app:</p>
+      <ul>
+        <li><strong>iOS users:</strong> Subscriptions are billed through Apple App Store. Your Apple ID account is charged. Manage your subscription via <em>Settings → [Your Name] → Subscriptions</em> on your iPhone or iPad.</li>
+        <li><strong>Android users:</strong> Subscriptions are billed through Google Play Store. Your Google account is charged. Manage your subscription via <em>Google Play → Account → Subscriptions</em>.</li>
+      </ul>
+      <p>SmartForage does not collect, store, or have access to your payment card details, bank account information, or any financial information. All billing disputes should be directed to Apple or Google, as applicable.</p>
+      <p>Subscription status is verified within the app using RevenueCat, which receives only anonymous subscription status from Apple/Google — not your payment details. See our Privacy Policy for details.</p>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="section" id="s6">
+      <div class="section-number">Section 06</div>
+      <h2>Cancellation &amp; Refunds</h2>
+
+      <h3>Cancellation</h3>
+      <p>You may cancel your subscription at any time through the Apple App Store or Google Play Store. Upon cancellation:</p>
+      <ul>
+        <li>Your Pro access continues until the end of the current paid billing period.</li>
+        <li>You will not be charged at the next renewal date.</li>
+        <li>No partial refunds are provided for unused time within a billing period, except as required by applicable law or platform policy.</li>
+      </ul>
+      <p><strong>Lifetime purchases</strong> are non-refundable except as required by applicable law or under Apple/Google's own refund policies.</p>
+
+      <h3>Refunds</h3>
+      <p>Refund requests must be submitted directly to Apple or Google, as SmartForage does not process payments and cannot issue refunds directly. To request a refund:</p>
+      <ul>
+        <li><strong>Apple:</strong> Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a></li>
+        <li><strong>Google:</strong> Visit <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">Google Play refund help</a></li>
+      </ul>
+      <p>If you have a complaint about the App that you believe warrants a refund and you are unable to obtain one through Apple or Google, please contact us at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a> and we will do our best to assist.</p>
+
+      <h3>Consumer Rights (New Zealand &amp; Australia)</h3>
+      <p>Nothing in these Terms limits rights you may have under the Consumer Guarantees Act 1993 (New Zealand), the Fair Trading Act 1986 (New Zealand), or equivalent consumer protection legislation. If the App fails to comply with applicable consumer guarantees, you may be entitled to a remedy under those Acts.</p>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="section" id="s7">
+      <div class="section-number">Section 07</div>
+      <h2>Health Disclaimer</h2>
+      <div class="warning-card">
+        <p><strong>Important — please read this section carefully.</strong></p>
+      </div>
+      <p>Breathwork Pro provides guided breathing exercises for educational, wellness, and personal development purposes. The App is <strong>not a medical device</strong>, and the content provided within the App is <strong>not medical advice</strong>.</p>
+      <p>The breathing techniques included in Breathwork Pro (including but not limited to box breathing, Wim Hof Method-style breathing, 4-7-8, pranayama techniques, CO₂ tolerance training, and breath retention exercises) may not be appropriate for all individuals. Some techniques involve intentional hyperventilation or breath retention which carry inherent risks.</p>
+
+      <h3>Contraindications</h3>
+      <p>You should not use certain breathing exercises in this app, and should consult a qualified physician before using this app at all, if you have any of the following conditions:</p>
+      <ul>
+        <li>Cardiovascular disease, heart conditions, or a history of stroke</li>
+        <li>Respiratory disorders including asthma, COPD, or emphysema</li>
+        <li>Epilepsy or seizure disorders</li>
+        <li>Anxiety disorders, PTSD, or panic disorder (certain exercises may be beneficial but should be introduced under professional guidance)</li>
+        <li>Pregnancy</li>
+        <li>Any condition for which breath-holding or altered breathing may pose a risk</li>
+      </ul>
+
+      <h3>Safety Rules</h3>
+      <p><strong>Never practice breath retention exercises:</strong></p>
+      <ul>
+        <li>While driving, cycling, or operating any vehicle or machinery.</li>
+        <li>While in or near water (including baths, pools, or open water).</li>
+        <li>While standing up unsupported, to avoid injury from potential fainting.</li>
+        <li>Alone, if you are a beginner to intensive breath retention techniques.</li>
+      </ul>
+      <p>SmartForage assumes no responsibility for any injury, health consequence, or adverse event arising from the use of breathing exercises or techniques provided in the App. By using the App, you acknowledge these risks and accept sole responsibility for your safety and health.</p>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="section" id="s8">
+      <div class="section-number">Section 08</div>
+      <h2>User Responsibilities</h2>
+      <p>By using Breathwork Pro, you agree to:</p>
+      <ul>
+        <li>Use the App in accordance with these Terms and all applicable laws and regulations.</li>
+        <li>Be at least 13 years of age. Users under 18 should obtain parental consent before using the App and before engaging in advanced breathwork techniques.</li>
+        <li>Not attempt to reverse-engineer, decompile, disassemble, or otherwise attempt to derive the source code of the App.</li>
+        <li>Not use the App for any commercial purpose without our prior written consent.</li>
+        <li>Not attempt to circumvent subscription verification mechanisms or unlock Pro features without a valid paid subscription.</li>
+        <li>Take full responsibility for your own health and safety when practicing the breathing exercises provided in the App.</li>
+      </ul>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="section" id="s9">
+      <div class="section-number">Section 09</div>
+      <h2>Intellectual Property</h2>
+      <p>All content, design, code, graphics, text, exercise programs, challenge structures, and other materials in Breathwork Pro are owned by or licensed to SmartForage and are protected by applicable intellectual property laws, including copyright, trademark, and trade secret law.</p>
+      <p>You are granted a limited, non-exclusive, non-transferable, revocable licence to use the App on your personal device(s) in accordance with these Terms and any applicable App Store or Google Play terms of service. This licence does not include:</p>
+      <ul>
+        <li>The right to copy, modify, or distribute the App or any of its content.</li>
+        <li>The right to create derivative works based on the App.</li>
+        <li>The right to use SmartForage or Breathwork Pro trademarks, logos, or branding without prior written permission.</li>
+      </ul>
+      <p>The breathing techniques themselves (e.g., box breathing, Wim Hof Method, 4-7-8) are not proprietary to SmartForage. Our intellectual property relates to the specific implementation, design, content, and user experience of the App.</p>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="section" id="s10">
+      <div class="section-number">Section 10</div>
+      <h2>Disclaimer of Warranties</h2>
+      <p>To the maximum extent permitted by applicable law, the App is provided on an <strong>"as is" and "as available" basis</strong>, without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+      <p>SmartForage does not warrant that:</p>
+      <ul>
+        <li>The App will be uninterrupted, error-free, or free of viruses or other harmful components.</li>
+        <li>The results obtained from using the App will be accurate or reliable.</li>
+        <li>The App will meet your specific health, wellness, or fitness goals.</li>
+        <li>Any specific breathing technique will produce any particular result for any individual user.</li>
+      </ul>
+      <p>Nothing in this clause limits your rights under applicable New Zealand consumer protection legislation that cannot be excluded by contract.</p>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="section" id="s11">
+      <div class="section-number">Section 11</div>
+      <h2>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, SmartForage and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, goodwill, or other intangible losses, resulting from:</p>
+      <ul>
+        <li>Your use of or inability to use the App.</li>
+        <li>Any injury, harm, or health consequence arising from the practice of breathing exercises in the App.</li>
+        <li>Unauthorised access to or use of your device or data.</li>
+        <li>Any interruption or cessation of the App's functionality.</li>
+        <li>Any bugs, errors, or inaccuracies in the App's content.</li>
+      </ul>
+      <p>In no event shall SmartForage's total liability to you for all claims relating to the App exceed the amount you paid for the App in the twelve (12) months preceding the event giving rise to the claim, or NZD $50.00, whichever is greater.</p>
+      <p>This limitation of liability does not exclude or limit liability that cannot be excluded or limited under the Consumer Guarantees Act 1993 (NZ) or other applicable legislation that grants you non-excludable rights as a consumer.</p>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="section" id="s12">
+      <div class="section-number">Section 12</div>
+      <h2>Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless SmartForage and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
+      <ul>
+        <li>Your use of the App in violation of these Terms.</li>
+        <li>Your violation of any applicable law or third-party rights.</li>
+        <li>Your failure to follow the health and safety guidance set out in these Terms and within the App.</li>
+      </ul>
+    </section>
+
+    <!-- Section 13 -->
+    <section class="section" id="s13">
+      <div class="section-number">Section 13</div>
+      <h2>Termination</h2>
+      <p>We reserve the right to suspend or terminate your access to the App at any time, with or without notice, if we believe you have violated these Terms or applicable law.</p>
+      <p>Upon termination:</p>
+      <ul>
+        <li>Your right to use the App ceases immediately.</li>
+        <li>Any locally stored data on your device will remain on your device until you delete the App.</li>
+        <li>Active subscription entitlements will not be refunded except as required by the Apple App Store or Google Play refund policies.</li>
+      </ul>
+      <p>You may terminate your use of the App at any time by uninstalling it from your device. Remember to cancel any active subscription through your App Store or Google Play account before or after uninstalling to avoid future charges.</p>
+    </section>
+
+    <!-- Section 14 -->
+    <section class="section" id="s14">
+      <div class="section-number">Section 14</div>
+      <h2>Governing Law &amp; Disputes</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of <strong>New Zealand</strong>, without regard to conflict of law principles. The courts of New Zealand shall have exclusive jurisdiction over any disputes arising from or relating to these Terms or the App.</p>
+      <p>If you are a consumer in another jurisdiction, you may also have the benefit of mandatory consumer protections in your home jurisdiction that cannot be waived by choice of law. Nothing in this clause is intended to deprive you of those protections.</p>
+
+      <h3>Dispute Resolution</h3>
+      <p>Before initiating formal legal proceedings, we encourage you to contact us at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a> to discuss the issue. We will make a genuine effort to resolve disputes amicably within 30 days of receiving written notice of a complaint.</p>
+    </section>
+
+    <!-- Section 15 -->
+    <section class="section" id="s15">
+      <div class="section-number">Section 15</div>
+      <h2>Changes to Terms</h2>
+      <p>We may revise these Terms at any time. When we make material changes, we will:</p>
+      <ul>
+        <li>Update the "Effective Date" at the top of this page.</li>
+        <li>Display an in-app notification for significant changes.</li>
+        <li>Where required by law, seek your consent before applying material changes.</li>
+      </ul>
+      <p>Your continued use of the App after changes take effect constitutes your acceptance of the revised Terms. If you do not agree to the revised Terms, stop using the App and cancel any active subscription.</p>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <p>Questions about these Terms, subscription issues, or legal enquiries:</p>
+      <a class="contact-link" href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a>
+      <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">SmartForage · New Zealand · Response within 5 business days</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <p>© 2026 SmartForage. Breathwork Pro is developed and published by SmartForage, New Zealand.</p>
+      <p style="margin-top: 6px;">
+        <a href="privacy_policy.html">Privacy Policy</a>
+        &nbsp;·&nbsp;
+        <a href="terms_of_service.html">Terms of Service</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

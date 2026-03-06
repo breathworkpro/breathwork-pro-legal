@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Breathwork Pro</title>
+  <style>
+    :root {
+      --bg-primary: #0a0f1e;
+      --bg-secondary: #111827;
+      --bg-card: #1a2235;
+      --bg-card-border: #1e2d45;
+      --accent: #4fa3e8;
+      --accent-light: #7dc4f5;
+      --accent-glow: rgba(79, 163, 232, 0.15);
+      --text-primary: #e8f0fe;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --divider: #1e2d45;
+      --heading-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+      --body-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--body-font);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* Subtle gradient mesh background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 400px;
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 163, 232, 0.12), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 48px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 48px;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(79, 163, 232, 0.3);
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .logo-mark svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .site-header h1 {
+      font-family: var(--heading-font);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .site-header .doc-title {
+      font-family: var(--heading-font);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    @media (max-width: 520px) {
+      .toc ol { grid-template-columns: 1fr; }
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+    }
+
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero) ". ";
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .toc a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover {
+      color: var(--accent-light);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 48px;
+      scroll-margin-top: 24px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-family: var(--heading-font);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .section p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section ul,
+    .section ol {
+      margin: 12px 0 16px 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .section li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .section h3 {
+      font-family: var(--heading-font);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 24px 0 10px;
+    }
+
+    /* Highlight card */
+    .highlight-card {
+      background: var(--accent-glow);
+      border: 1px solid rgba(79, 163, 232, 0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-card p {
+      color: var(--accent-light) !important;
+      font-size: 14px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .highlight-card strong {
+      color: #a8d8f8;
+    }
+
+    /* Info table */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .info-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .info-table td {
+      padding: 10px 14px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--divider);
+      vertical-align: top;
+    }
+
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .info-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* Contact footer */
+    .contact-section {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .contact-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 10px 24px;
+      border: 1px solid rgba(79, 163, 232, 0.35);
+      border-radius: 8px;
+      background: var(--accent-glow);
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      background: rgba(79, 163, 232, 0.25);
+      border-color: var(--accent);
+    }
+
+    .doc-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--divider);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .doc-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(79, 163, 232, 0.4);
+    }
+
+    a:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="12" stroke="#4fa3e8" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="14" cy="14" r="7" stroke="#4fa3e8" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="14" cy="14" r="3" fill="#4fa3e8"/>
+        </svg>
+      </div>
+      <h1>Breathwork Pro</h1>
+      <div class="doc-title">Privacy Policy</div>
+      <div class="meta-info">
+        <span class="meta-badge">Effective: March 2026</span>
+        <span class="meta-badge">SmartForage Ltd</span>
+        <span class="meta-badge">New Zealand</span>
+      </div>
+    </header>
+
+    <!-- Intro highlight -->
+    <div class="highlight-card">
+      <p><strong>Plain-language summary:</strong> Breathwork Pro is designed with your privacy as a priority. We do not collect personal information. Your session data, streaks, and settings stay on your device. Subscription billing is handled entirely by Apple or Google — we never see your payment details. We do not run ads or analytics SDKs.</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#s1">Information We Collect</a></li>
+        <li><a href="#s2">How We Use Information</a></li>
+        <li><a href="#s3">Data Storage &amp; Security</a></li>
+        <li><a href="#s4">Subscriptions &amp; RevenueCat</a></li>
+        <li><a href="#s5">Health &amp; Biometric Data</a></li>
+        <li><a href="#s6">Third-Party Services</a></li>
+        <li><a href="#s7">Data Sharing</a></li>
+        <li><a href="#s8">Data Retention &amp; Deletion</a></li>
+        <li><a href="#s9">Children's Privacy</a></li>
+        <li><a href="#s10">Your Rights</a></li>
+        <li><a href="#s11">GDPR (EU Users)</a></li>
+        <li><a href="#s12">NZ Privacy Act 2020</a></li>
+        <li><a href="#s13">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="section" id="s1">
+      <div class="section-number">Section 01</div>
+      <h2>Information We Collect</h2>
+
+      <h3>Information Stored Locally on Your Device</h3>
+      <p>Breathwork Pro stores the following data exclusively on your device using local storage (no server-side account required):</p>
+      <ul>
+        <li><strong>Session history</strong> — records of completed breathing exercises including exercise name, duration, date, and session rating where provided.</li>
+        <li><strong>Streak data</strong> — your daily practice streak count and last activity date, used to display your progress.</li>
+        <li><strong>Settings preferences</strong> — selected exercise configurations, haptic feedback preferences, theme settings, notification preferences, and audio settings.</li>
+        <li><strong>Challenge progress</strong> — completion status for 7-day challenges and in-app goals.</li>
+        <li><strong>Calendar heat map data</strong> — aggregated daily session counts used to render your activity calendar.</li>
+      </ul>
+
+      <h3>Information We Do Not Collect</h3>
+      <p>We do not collect, transmit, or store the following:</p>
+      <ul>
+        <li>Your name, email address, or any account credentials (unless you opt in to a future cloud sync feature).</li>
+        <li>Location data.</li>
+        <li>Device identifiers beyond what is technically required for subscription verification (see Section 4).</li>
+        <li>Browsing history or cross-app tracking data.</li>
+        <li>Contacts, camera, or microphone data.</li>
+        <li>Crash reports sent to third-party analytics services.</li>
+      </ul>
+
+      <h3>Future Cloud Sync (Optional)</h3>
+      <p>We may introduce an optional cloud sync feature in a future update. If and when that feature is launched, you will be explicitly asked to create an account and consent to data storage before any information leaves your device. This policy will be updated accordingly before that feature is released.</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section" id="s2">
+      <div class="section-number">Section 02</div>
+      <h2>How We Use Information</h2>
+      <p>All data collected by the app is used solely to provide and improve your in-app experience:</p>
+      <ul>
+        <li>Displaying your session history and progress statistics within the app.</li>
+        <li>Maintaining your streak and motivating continued practice.</li>
+        <li>Remembering your preferences so the app behaves the way you configured it.</li>
+        <li>Verifying your subscription status to unlock Pro features (via RevenueCat — see Section 4).</li>
+      </ul>
+      <p>We do not use any collected data for advertising, profiling, marketing, or sale to third parties.</p>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section" id="s3">
+      <div class="section-number">Section 03</div>
+      <h2>Data Storage &amp; Security</h2>
+      <p>Your app data is stored locally on your device using Flutter's secure local storage mechanisms. Data is subject to your device's built-in encryption and security model (e.g., iOS Data Protection, Android Keystore).</p>
+      <p>Because we do not operate servers that store your personal data, there are no server-side databases to breach. The security of your data depends on your device's lock screen and OS security settings.</p>
+      <p>We recommend keeping your device OS up to date and using a strong device passcode to protect all locally stored app data.</p>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="section" id="s4">
+      <div class="section-number">Section 04</div>
+      <h2>Subscriptions &amp; RevenueCat</h2>
+      <p>Breathwork Pro uses <strong>RevenueCat</strong> to manage subscription status across iOS and Android. RevenueCat is a third-party SDK that allows the app to verify whether you have an active subscription without the app directly accessing your payment details.</p>
+
+      <h3>What RevenueCat Receives</h3>
+      <ul>
+        <li>An <strong>anonymous user ID</strong> generated by RevenueCat (not linked to your name or email).</li>
+        <li>Subscription status and entitlement data (active, expired, trial) sourced from Apple App Store or Google Play.</li>
+        <li>Platform-level receipt data for verification purposes.</li>
+      </ul>
+
+      <h3>What RevenueCat Does Not Receive</h3>
+      <ul>
+        <li>Your name, email, or payment card details — these remain with Apple or Google exclusively.</li>
+        <li>Any breathing session data or in-app activity.</li>
+      </ul>
+
+      <p>Billing, payment processing, refunds, and subscription management are handled entirely by Apple (App Store) or Google (Google Play) according to their respective privacy policies. We never see, store, or process payment information.</p>
+
+      <p>RevenueCat's privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">revenuecat.com/privacy</a>.</p>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="section" id="s5">
+      <div class="section-number">Section 05</div>
+      <h2>Health &amp; Biometric Data</h2>
+      <p>Breathwork Pro records <strong>breath-hold times</strong> and <strong>session duration</strong> as part of your practice history. This information is considered health-related data in some jurisdictions.</p>
+
+      <div class="highlight-card">
+        <p><strong>This data never leaves your device.</strong> Breath-hold times, session history, and all related health data are stored exclusively in local app storage and are not transmitted to SmartForage, RevenueCat, or any third party.</p>
+      </div>
+
+      <p>The app does not integrate with Apple Health (HealthKit) or Google Fit by default. If a future update introduces such integration, it will be opt-in and clearly disclosed.</p>
+      <p>Breathwork Pro is not a medical device and the data it records should not be used for medical diagnosis or treatment decisions. See our Terms of Service for the full health disclaimer.</p>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="section" id="s6">
+      <div class="section-number">Section 06</div>
+      <h2>Third-Party Services</h2>
+      <p>The following summarises all third-party integrations in the current version of the app:</p>
+
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Purpose</th>
+            <th>Data Shared</th>
+            <th>Privacy Policy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>RevenueCat</strong></td>
+            <td>Subscription management &amp; entitlement verification</td>
+            <td>Anonymous user ID, subscription status</td>
+            <td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">revenuecat.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td><strong>Apple App Store</strong></td>
+            <td>iOS app distribution &amp; payment processing</td>
+            <td>Governed by Apple's policies</td>
+            <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">apple.com/legal/privacy</a></td>
+          </tr>
+          <tr>
+            <td><strong>Google Play</strong></td>
+            <td>Android app distribution &amp; payment processing</td>
+            <td>Governed by Google's policies</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>No advertising SDKs are included</strong> in Breathwork Pro. We do not use Google AdMob, Facebook Audience Network, or any other advertising framework. <strong>No analytics SDKs are included</strong> — we do not use Firebase Analytics, Mixpanel, Amplitude, or similar tools.</p>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="section" id="s7">
+      <div class="section-number">Section 07</div>
+      <h2>Data Sharing</h2>
+      <p>We do not sell, rent, trade, or share your personal information with third parties, except as described in the Third-Party Services section above (subscription verification only).</p>
+      <p>We may disclose information if required to do so by law, court order, or governmental authority, or if we believe in good faith that such disclosure is necessary to protect the rights, property, or safety of SmartForage, our users, or the public.</p>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="section" id="s8">
+      <div class="section-number">Section 08</div>
+      <h2>Data Retention &amp; Deletion</h2>
+      <p>Because all data is stored locally on your device, you are in full control of your data at all times.</p>
+
+      <h3>Deleting Your Data</h3>
+      <ul>
+        <li><strong>Clear all app data:</strong> Navigate to <em>Settings → Privacy → Clear All Data</em> within the app to permanently delete all session history, streaks, preferences, and cached data.</li>
+        <li><strong>Uninstall the app:</strong> Uninstalling Breathwork Pro from your device will remove all locally stored data. Note that uninstalling does not cancel an active subscription — subscription management must be done through the App Store or Google Play.</li>
+      </ul>
+
+      <h3>RevenueCat Data Deletion</h3>
+      <p>RevenueCat retains anonymous subscription records as required for billing and fraud prevention. To request deletion of your RevenueCat record, contact us at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a> with the subject line "Data Deletion Request" and we will coordinate with RevenueCat on your behalf.</p>
+
+      <h3>Retention Period</h3>
+      <p>We do not retain your data beyond the period you use the app. There is no server-side retention because we do not collect server-side data.</p>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="section" id="s9">
+      <div class="section-number">Section 09</div>
+      <h2>Children's Privacy</h2>
+      <p>Breathwork Pro is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child under 13 has provided personal information through the app, please contact us immediately at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a> and we will take prompt action to delete such information.</p>
+      <p>Users between the ages of 13 and 18 should review this policy with their parent or guardian. Some breathing techniques in the app (e.g., breath retention) are intended for adults and should not be practiced by minors without parental supervision and medical guidance.</p>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="section" id="s10">
+      <div class="section-number">Section 10</div>
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have certain rights regarding your personal data. Given the privacy-first design of Breathwork Pro, most of these rights are satisfied by the local-only data model. Specifically:</p>
+      <ul>
+        <li><strong>Right to access:</strong> All data the app holds is accessible directly in the app under your session history and settings.</li>
+        <li><strong>Right to correction:</strong> You can modify settings and preferences at any time in the app.</li>
+        <li><strong>Right to erasure:</strong> Use the in-app "Clear All Data" function or uninstall the app.</li>
+        <li><strong>Right to data portability:</strong> Session data is currently stored locally. Export functionality may be added in a future update.</li>
+        <li><strong>Right to object to processing:</strong> We do not engage in any automated processing or profiling of your data.</li>
+      </ul>
+      <p>To exercise any rights relating to RevenueCat's anonymous records, contact us at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a>.</p>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="section" id="s11">
+      <div class="section-number">Section 11</div>
+      <h2>GDPR Compliance (EU &amp; EEA Users)</h2>
+      <p>If you are located in the European Union or European Economic Area, the General Data Protection Regulation (GDPR) applies to our processing of your personal data.</p>
+
+      <h3>Legal Basis for Processing</h3>
+      <p>To the extent that Breathwork Pro processes any personal data (primarily through RevenueCat for subscription verification), we do so on the following legal bases:</p>
+      <ul>
+        <li><strong>Performance of a contract:</strong> Processing your subscription status is necessary to provide the Pro features you have purchased.</li>
+        <li><strong>Legitimate interests:</strong> Maintaining anonymous technical records necessary for the reliable operation of the subscription system.</li>
+      </ul>
+
+      <h3>Data Transfers</h3>
+      <p>RevenueCat is a US-based company. When subscription data is processed by RevenueCat, it may be transferred to and processed in the United States. RevenueCat maintains appropriate safeguards for international data transfers in compliance with GDPR requirements.</p>
+
+      <h3>GDPR Rights</h3>
+      <p>EU/EEA residents have the right to lodge a complaint with their local Data Protection Authority (DPA) if they believe their data rights have been violated. You can also contact us directly at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a>.</p>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="section" id="s12">
+      <div class="section-number">Section 12</div>
+      <h2>New Zealand Privacy Act 2020</h2>
+      <p>SmartForage operates under the <strong>Privacy Act 2020 (New Zealand)</strong> as our primary governing privacy framework. This Act establishes the Privacy Principles that guide how we handle personal information.</p>
+
+      <h3>Privacy Principles Compliance</h3>
+      <ul>
+        <li><strong>PP1 – Purpose of collection:</strong> Any information collected is used only for the purpose stated in this policy.</li>
+        <li><strong>PP2 – Source of information:</strong> Information is collected directly from your use of the app on your device.</li>
+        <li><strong>PP3 – Collection of information from individual:</strong> You are notified of data practices through this policy upon first use.</li>
+        <li><strong>PP6 – Access to personal information:</strong> You can access all data the app stores at any time through the app itself.</li>
+        <li><strong>PP7 – Correction of personal information:</strong> You can modify or delete data through in-app settings.</li>
+        <li><strong>PP10 – Limits on use of personal information:</strong> We use information only for the purposes described in this policy.</li>
+        <li><strong>PP11 – Limits on disclosure:</strong> We do not disclose personal information to third parties except as described herein.</li>
+      </ul>
+
+      <h3>Privacy Officer</h3>
+      <p>Our designated Privacy Officer can be contacted at <a href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a>. You have the right to make a complaint to the Office of the Privacy Commissioner (New Zealand) at <a href="https://www.privacy.org.nz" target="_blank" rel="noopener noreferrer">privacy.org.nz</a>.</p>
+    </section>
+
+    <!-- Section 13 -->
+    <section class="section" id="s13">
+      <div class="section-number">Section 13</div>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we make material changes, we will:</p>
+      <ul>
+        <li>Update the "Effective Date" at the top of this page.</li>
+        <li>Display an in-app notification for significant changes.</li>
+        <li>Post the updated policy at the same URL.</li>
+      </ul>
+      <p>Your continued use of Breathwork Pro after any changes to this policy constitutes your acceptance of the updated terms. If you disagree with any changes, you should stop using the app and may delete your locally stored data as described in Section 8.</p>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <p>Questions about this Privacy Policy, data deletion requests, or privacy concerns:</p>
+      <a class="contact-link" href="mailto:breathworkpro@outlook.com">breathworkpro@outlook.com</a>
+      <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">SmartForage · New Zealand · Response within 5 business days</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <p>© 2026 SmartForage. Breathwork Pro is developed and published by SmartForage, New Zealand.</p>
+      <p style="margin-top: 6px;">
+        <a href="privacy_policy.html">Privacy Policy</a>
+        &nbsp;·&nbsp;
+        <a href="terms_of_service.html">Terms of Service</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
